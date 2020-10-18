@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import {Link, graphql, useStaticQuery} from 'gatsby'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import styled from 'styled-components'
 
@@ -37,18 +37,35 @@ const NavStyles = styled.nav`
 
   button {
     margin-right: 4rem;
-    background-color: var(--white);
-    color: var(--accent);
+    &:first-child {
+      background-color: var(--white);
+      color: var(--accent);
+    }
     &:last-child {
       margin-right: 0;
-
     }
   }
 `
 
 const Nav = () => {
+  const data = useStaticQuery(graphql`
+  query MyQuery {
+    datoCmsHeroSection {
+      buttonColourText
+      buttonLightText
+      contactButtonText
+      paragraph
+      phoneNumber
+      titleColour
+      titleDark
+    }
+  }
+
+  `)
+
   return (
     <NavStyles>
+      {console.log(data)}
       <h1>Nasz Okraj Sp. z o.o.</h1>
       <ul>
         <li>
@@ -69,10 +86,10 @@ const Nav = () => {
       </ul>
       <div className="buttons-wrapper">
         <button type="button">
-          Baza Klienta
+          {data.datoCmsHeroSection.buttonColourText}
         </button>
         <button type="button">
-          Kontakt
+          {data.datoCmsHeroSection.buttonLightText}
         </button>
       </div>
     </NavStyles>
