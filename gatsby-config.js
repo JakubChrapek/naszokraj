@@ -3,9 +3,11 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Naszokraj`,
+    siteUrl: `https://naszokraj.eu`,
+    description: `Prowadzimy kompleksowy serwis oraz wymianę pieców gazowych. Jesteśmy autoryzowanymi przedstawicielami marek dostarczających ciepło.`,
+    twitter: `@naszokraj`,
+    author: `@kryptonum.studio`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

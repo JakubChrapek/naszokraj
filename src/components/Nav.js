@@ -53,13 +53,18 @@ const Nav = () => {
     datoCmsHeroSection {
       buttonColourText
       buttonLightText
-      contactButtonText
-      paragraph
-      phoneNumber
-      titleColour
-      titleDark
+      navLinks {
+        link
+        title
+      }
+      logo {
+        fixed {
+          src
+        }
+      }
     }
   }
+
 
   `)
 
