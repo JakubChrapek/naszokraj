@@ -10,7 +10,7 @@ const NavStyles = styled.nav`
   display: grid;
   align-content: center;
   height: 80px;
-  grid-template-columns: auto 3fr 4fr;
+  grid-template-columns: auto 1fr 1fr;
   z-index: 1;
 
   ul {
@@ -47,7 +47,7 @@ const NavStyles = styled.nav`
   button {
     margin-right: 4rem;
     &:first-child {
-      background-color: var(--white);
+      background-color: white;
       color: var(--accent);
     }
     &:last-child {

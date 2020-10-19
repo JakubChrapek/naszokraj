@@ -7,7 +7,6 @@ const HomePage = () => {
     <>
       <SEO title="Piece Gazowe"/>
       <HeroSection />
-      <h1>HomePage</h1>
     </>
   )
 }
