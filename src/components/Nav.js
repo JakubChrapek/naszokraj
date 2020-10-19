@@ -1,13 +1,17 @@
 import React from 'react'
 import {Link, graphql, useStaticQuery} from 'gatsby'
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const NavStyles = styled.nav`
   padding: 2rem 6rem 2rem 8rem;
+  position: relative;
   margin: 0;
   display: grid;
+  align-content: center;
+  height: 80px;
   grid-template-columns: auto 3fr 4fr;
+  z-index: 1;
 
   ul {
     padding: 0;
@@ -15,7 +19,6 @@ const NavStyles = styled.nav`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 6rem;
   }
 
   li {
@@ -28,11 +31,17 @@ const NavStyles = styled.nav`
   }
   a {
     padding: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
   }
   .buttons-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-left: 4rem;
   }
 
   button {
@@ -58,8 +67,8 @@ const Nav = () => {
         title
       }
       logo {
-        fixed {
-          src
+        fixed(width: 80) {
+          ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
     }
@@ -70,24 +79,19 @@ const Nav = () => {
 
   return (
     <NavStyles>
-      {console.log(data)}
-      <h1>Nasz Okraj Sp. z o.o.</h1>
+      <h1>
+        <Link to="/" className="title">
+          <Img fixed={data.datoCmsHeroSection.logo.fixed} />
+        </Link>
+      </h1>
       <ul>
-        <li>
-        <Link to="#stronaglowna">
-          Strona Główna
-        </Link>
-        </li>
-        <li>
-        <Link to="#onas">
-          O Nas
-        </Link>
-        </li>
-        <li>
-        <Link to="#uslugi">
-          Usługi
-        </Link>
-        </li>
+        {data.datoCmsHeroSection.navLinks.map(navLink => (
+          <li>
+            <Link to={navLink.link}>
+              {navLink.title}
+            </Link>
+          </li>
+        ))}
       </ul>
       <div className="buttons-wrapper">
         <button type="button">

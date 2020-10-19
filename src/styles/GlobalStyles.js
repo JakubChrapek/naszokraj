@@ -25,16 +25,10 @@ const GlobalStyles = createGlobalStyle`
     background: var(--orange);
     color: white;
     border: 0;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
+    padding: 1.2rem 0.8rem;
+    width: 150px;
     cursor: pointer;
-    --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--grey);
-    text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
     transition: all 0.2s;
-    &:hover {
-      --cast: 4px;
-    }
   }
 
   .gatsby-image-wrapper img[src*=base64\\,] {
@@ -44,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
 
   /* Scrollbar Styles */
   body::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
   }
   html {
     scrollbar-width: thin;
@@ -55,8 +49,10 @@ const GlobalStyles = createGlobalStyle`
   }
   body::-webkit-scrollbar-thumb {
     background-color: var(--orange) ;
-    border-radius: 6px;
+    border-radius: 0px;
     border: 3px solid var(--white);
+    border-right: 0;
+    border-top: 0;
   }
 
   img {

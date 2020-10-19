@@ -1,18 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
+import 'normalize.css'
 import Nav from './Nav'
 import Footer from './Footer'
-import 'normalize.css'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
+
+const ContentStyles = styled.div`
+  background: #fff;
+  
+`;
 
 const Layout = ({children}) => {
   return (
     <>
       <GlobalStyles />
       <Typography />
-      <Nav />
-      {children}
-      <Footer />
+      <ContentStyles>
+        <Nav />
+        {children}
+        <Footer />
+      </ContentStyles>
     </>
   )
 }
