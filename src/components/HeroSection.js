@@ -5,6 +5,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 
 import Section from './Section'
 import PhoneIcon from '../assets/images/icon-phone.svg'
+import HeroBg from '../assets/images/hero-bg.svg'
 import GatsbyImage from 'gatsby-image'
 
 const HeroSectionStyles = styled.div`
@@ -96,8 +97,39 @@ const HeroSectionStyles = styled.div`
   }
 `
 
+const HeroWrapper = styled.section`
+  background-image: url(${({bg}) => bg});
+  background-color: ${({bgColor}) => bgColor};
+  background-repeat: no-repeat;
+  background-size: 160vw;
+  background-position: 65% 75%;
+`
+
+const OurBrandsStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80vw;
+  margin: 0 12rem;
+  p {
+    align-self: flex-start;
+  }
+
+  > div {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    gap: 4rem 10rem;
+  }
+  .gatsby-image-wrapper {
+    img, picture img {
+      object-fit: contain !important;
+    }
+  }
+`
+
 const HeroSection = () => {
-  const {datoCmsHeroSection} = useStaticQuery(graphql`
+  const {datoCmsHeroSection, allDatoCmsBrandImage} = useStaticQuery(graphql`
     query HeroQuery {
       datoCmsHeroSection {
         heroImage {
@@ -112,10 +144,21 @@ const HeroSection = () => {
         paragraph
         contactButtonText
       }
+      allDatoCmsBrandImage {
+        nodes {
+          image {
+            title
+            alt
+            fluid {
+              ...GatsbyDatoCmsFluid_tracedSVG
+            }
+          }
+        }
+      }
     }
   `)
   return (    
-    <Section>
+    <HeroWrapper bg={HeroBg} bgColor="#fff">
       <HeroSectionStyles>
         <div className="cta">
           <h1>{datoCmsHeroSection.titleDark}<br/><span>{datoCmsHeroSection.titleColour}</span></h1>
@@ -127,16 +170,21 @@ const HeroSection = () => {
             <p>Problem z piecem?</p>
             <a href={`tel:+48${datoCmsHeroSection.phoneNumber.replace(/ /g, '')}`}>
               <img src={PhoneIcon} alt="ikona telefonu" />
-              {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="-949 951 100 125">
-                <path d="M-860.6 1044.1c-1.9 2.9-5.2 4.6-8.7 4.4-3.5-.2-8-.7-11.1-1.5-13.8-3.6-28.1-12.2-40.2-24.3-12.1-12.1-20.7-26.4-24.3-40.2-.8-3.1-1.2-7.5-1.5-11-.2-3.4 1.4-6.7 4.3-8.6l12.3-8.2c3.2-2.1 7.5-1 9.2 2.4l10 19.3c1.4 2.7.7 6.1-1.7 8l-9 7c3.6 6.7 7 12.1 13.6 18.6 6.1 6.1 11.4 9.7 18.3 13.4l7.1-9.1c1.9-2.4 5.3-3.2 8-1.7l19.4 10c3.4 1.7 4.5 6 2.4 9.2l-8.1 12.3z"/>
-              </svg> */}
               <span>{datoCmsHeroSection.phoneNumber}</span>
             </a>
           </div>
           <GatsbyImage fluid={datoCmsHeroSection.heroImage.fluid} />
         </div>
       </HeroSectionStyles>
-    </Section>
+      <OurBrandsStyles>
+        <p>Nasze marki</p>
+        <div>
+          {allDatoCmsBrandImage.nodes.map((node) => (
+            <GatsbyImage fluid={node.image.fluid} alt={node.alt} />
+          ))}
+        </div>
+      </OurBrandsStyles>
+    </HeroWrapper>
   )
 }
 
