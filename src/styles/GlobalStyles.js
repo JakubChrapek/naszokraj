@@ -2,11 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --orange: #EF5F38;
     --black: #020A13;
+    --blackText: #2B2B2D;
     --white: #FEF9F8;
-    --accent: #F4673A;
-    --grey: #efefef;
+    --orange: #FF6600;
+    --accent: #F05D05;
+    --grey: #434343;
+    --lightGrey: #9F9F9F;
   }
   html {
     font-size: 10px;
@@ -57,6 +59,10 @@ const GlobalStyles = createGlobalStyle`
 
   img {
     max-width: 100%;
+  }
+
+  *, *+* {
+    margin: 0;
   }
 
 `;

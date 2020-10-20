@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 import {graphql, useStaticQuery} from 'gatsby'
 
-import Section from './Section'
 import PhoneIcon from '../assets/images/icon-phone.svg'
 import HeroBg from '../assets/images/hero-bg.svg'
 import GatsbyImage from 'gatsby-image'
@@ -18,7 +16,7 @@ const HeroSectionStyles = styled.div`
     flex-direction: column;
     justify-self: stretch;
     justify-content: center;
-    padding: 0 10% 15% 20%;
+    padding: 0 10% 15% 22rem;
     @media only screen and (max-width: 1600px) {
       padding: 0 8% 10% 15%;
     }
@@ -102,24 +100,26 @@ const HeroWrapper = styled.section`
   background-color: ${({bgColor}) => bgColor};
   background-repeat: no-repeat;
   background-size: 160vw;
-  background-position: 65% 75%;
+  background-position: 65% 82%;
 `
 
 const OurBrandsStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 80vw;
-  margin: 0 12rem;
+  margin: -10rem 12rem 0;
   p {
     align-self: flex-start;
+    margin-left: 10rem;
   }
 
   > div {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(5, minmax(170px, 1fr));
-    gap: 4rem 10rem;
+    margin-top: 8rem;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    grid-template-rows: 40px 40px;
+    gap: 6rem 10rem;
   }
   .gatsby-image-wrapper {
     img, picture img {
@@ -129,9 +129,9 @@ const OurBrandsStyles = styled.div`
 `
 
 const HeroSection = () => {
-  const {datoCmsHeroSection, allDatoCmsBrandImage} = useStaticQuery(graphql`
+  const {datoCmsHero, allDatoCmsBrandImage} = useStaticQuery(graphql`
     query HeroQuery {
-      datoCmsHeroSection {
+      datoCmsHero {
         heroImage {
           fluid(maxWidth: 1000) {
           ...GatsbyDatoCmsFluid_tracedSVG
@@ -161,25 +161,25 @@ const HeroSection = () => {
     <HeroWrapper bg={HeroBg} bgColor="#fff">
       <HeroSectionStyles>
         <div className="cta">
-          <h1>{datoCmsHeroSection.titleDark}<br/><span>{datoCmsHeroSection.titleColour}</span></h1>
-          <p>{datoCmsHeroSection.paragraph}</p>
-          <button>{datoCmsHeroSection.contactButtonText}</button>
+          <h1>{datoCmsHero.titleDark}<br/><span>{datoCmsHero.titleColour}</span></h1>
+          <p>{datoCmsHero.paragraph}</p>
+          <button>{datoCmsHero.contactButtonText}</button>
         </div>
         <div className="contact">
           <div className="contactWrapper">
             <p>Problem z piecem?</p>
-            <a href={`tel:+48${datoCmsHeroSection.phoneNumber.replace(/ /g, '')}`}>
+            <a href={`tel:+48${datoCmsHero.phoneNumber.replace(/ /g, '')}`}>
               <img src={PhoneIcon} alt="ikona telefonu" />
-              <span>{datoCmsHeroSection.phoneNumber}</span>
+              <span>{datoCmsHero.phoneNumber}</span>
             </a>
           </div>
-          <GatsbyImage fluid={datoCmsHeroSection.heroImage.fluid} />
+          <GatsbyImage fluid={datoCmsHero.heroImage.fluid} />
         </div>
       </HeroSectionStyles>
       <OurBrandsStyles>
         <p>Nasze marki</p>
         <div>
-          {allDatoCmsBrandImage.nodes.map((node) => (
+          {allDatoCmsBrandImage.nodes.reverse().map((node) => (
             <GatsbyImage fluid={node.image.fluid} alt={node.alt} />
           ))}
         </div>

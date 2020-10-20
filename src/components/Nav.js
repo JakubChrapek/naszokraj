@@ -59,7 +59,7 @@ const NavStyles = styled.nav`
 const Nav = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
-    datoCmsHeroSection {
+    datoCmsHero {
       buttonColourText
       buttonLightText
       navLinks {
@@ -81,11 +81,11 @@ const Nav = () => {
     <NavStyles>
       <h1>
         <Link to="/" className="title">
-          <Img fixed={data.datoCmsHeroSection.logo.fixed} />
+          <Img fixed={data.datoCmsHero.logo.fixed} />
         </Link>
       </h1>
       <ul>
-        {data.datoCmsHeroSection.navLinks.map(navLink => (
+        {data.datoCmsHero.navLinks.map(navLink => (
           <li>
             <Link to={navLink.link}>
               {navLink.title}
@@ -95,10 +95,10 @@ const Nav = () => {
       </ul>
       <div className="buttons-wrapper">
         <button type="button">
-          {data.datoCmsHeroSection.buttonColourText}
+          {data.datoCmsHero.buttonColourText}
         </button>
         <button type="button">
-          {data.datoCmsHeroSection.buttonLightText}
+          {data.datoCmsHero.buttonLightText}
         </button>
       </div>
     </NavStyles>
