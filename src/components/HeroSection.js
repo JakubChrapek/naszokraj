@@ -185,7 +185,7 @@ const HeroSection = () => {
         <p>Nasze marki</p>
         <div>
           {allDatoCmsBrandImage.nodes.reverse().map((node) => (
-            <GatsbyImage fluid={node.image.fluid} alt={node.alt} />
+            <GatsbyImage key={node.image.title} fluid={node.image.fluid} alt={node.image.alt} />
           ))}
         </div>
       </OurBrandsStyles>

@@ -83,7 +83,7 @@ const Nav = () => {
       </h1>
       <ul>
         {data.datoCmsHero.navLinks.map(navLink => (
-          <li>
+          <li key={navLink.title}>
             <Link className="underline" to={navLink.link}>
               {navLink.title}
             </Link>

@@ -1,9 +1,12 @@
-import React, {useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import {BsEnvelopeFill} from 'react-icons/bs'
 import {FaPhone} from 'react-icons/fa'
 import GatsbyImage from 'gatsby-image'
 import {graphql, Link, useStaticQuery} from 'gatsby'
+import { AnimatePresence, motion } from 'framer-motion'
+import axios from "axios"
+import * as qs from "query-string"
 
 const Wrapper = styled.section`
   margin: 0 auto;
@@ -19,6 +22,14 @@ const SectionStyles = styled.div`
     width: 39px;
     background-color: var(--accent);
     margin: 2rem 0;
+  }
+
+  .message {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: var(--grey);
   }
 
   .textCenter {
@@ -201,7 +212,7 @@ const SectionStyles = styled.div`
         color: var(--accent);
         &:hover, &:focus {
           border: 3px solid var(--accent);
-          border-radius: 1.2rem;
+          border-radius: 1rem;
           outline: none;
         }
       }
@@ -269,9 +280,45 @@ const Counter = ({currentTextLength, maxLength}) => (
 
 const ContactUsSection = () => {
   const [counter, setCounter] = useState('0');
+  const [refs, setRefs] = useState([]);
+  const [message, setMessage] = useState('');
+  const formRef = useRef();
+  const botFieldRef = useRef();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
+  useEffect(() => {
+    setRefs([botFieldRef, nameRef, emailRef, messageRef]);
+  }, [])
 
   const handleChange = (e) => {
     setCounter(e.target.textLength);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {}
+    refs.map((key, i) => (formData[key.current.name] = refs[i].current.value))
+    console.log(formData);
+    const axiosOptions = {
+      url: "/",
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      data: qs.stringify(formData),
+    }
+    await axios(axiosOptions)
+    .then(response => {
+      setMessage("Dziękujemy za kontakt! Wkrótce odpowiemy.")
+      formRef.current.reset()
+    })
+    .catch(err => {
+      setMessage("Coś poszło nie tak. Spróbuj jeszcze raz.")
+    })
+    // setTimeout(() =>
+    // {
+    //   setMessage("");
+    // }, 5000);
   }
 
   return (
@@ -299,19 +346,19 @@ const ContactUsSection = () => {
             />
           </div>
           <div className="formWrapper">
-            <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-              <p class="hidden">
-                <label id="syrup" htmlFor="bot-field">Nie wypełniaj, jeśli jesteś człowiekiem<input name="bot-field" /></label>
+            <form ref={formRef} onSubmit={(e) => handleSubmit(e)} name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+              <p className="hidden">
+                <label id="syrup" htmlFor="bot-field">Nie wypełniaj, jeśli jesteś człowiekiem<input ref={botFieldRef} name="bot-field" /></label>
               </p>
               <p>
-                <label htmlFor="name">Imię i nazwisko<input type="text" id="name" name="name" placeholder="Jan Kowalski"/></label>   
+                <label htmlFor="name">Imię i nazwisko<input type="text" id="name" ref={nameRef} name="name" placeholder="Jan Kowalski"/></label>   
               </p>
               <p>
-                <label htmlFor="email">Adres email<input type="email" id="email" name="email" placeholder="nazwa@email.com"/></label>
+                <label htmlFor="email">Adres email<input type="email" id="email" ref={emailRef} name="email" placeholder="nazwa@email.com"/></label>
               </p>
               <p>
                 <label htmlFor="message">Wiadomość
-                  <textarea onChange={(e) => handleChange(e)} maxLength="500" name="message" rows="6" id="message" placeholder="Dzień dobry, piszę do Was, ponieważ..."/>
+                  <textarea onChange={(e) => handleChange(e)} maxLength="500" ref={messageRef} name="message" rows="6" id="message" placeholder="Dzień dobry, piszę do Was, ponieważ..."/>
                   <Counter currentTextLength={counter} maxLength="500"/>
                 </label>
               </p>
@@ -320,6 +367,18 @@ const ContactUsSection = () => {
                 <label htmlFor="accept">Przeczytałem/łam i zgadzam się z&nbsp;<Link className="underline" to="/polityka">polityką prywatności</Link></label>
               </p>
               <button type="submit">Wyślij</button>
+              <AnimatePresence>
+                {message && 
+                  <motion.p 
+                    className="message"
+                    initial={{opacity: 0, y: 10}}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0}}
+                  >
+                    {message}
+                  </motion.p>
+                }
+              </AnimatePresence>
             </form>
           </div>
         </div>
