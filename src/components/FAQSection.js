@@ -13,8 +13,8 @@ const Wrapper = styled.section`
 `
 
 const SectionStyles = styled.div`
-    margin: 0 12rem 0 22rem;
-    padding: 10rem 0;
+    margin: 0 12rem 0 25rem;
+    padding: 14rem 0;
     max-width: 1920px;
     display: grid;
     grid-template-columns: minmax(320px, 5fr) 4fr;
@@ -28,7 +28,7 @@ const SectionStyles = styled.div`
     .title {
       font-size: 3.6rem;
       line-height: 4.5rem;
-      font-weight: bold;
+      font-weight: 900;
       color: var(--black);
       margin-bottom: 2.4rem;
     }

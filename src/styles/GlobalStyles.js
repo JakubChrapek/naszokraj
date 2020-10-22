@@ -30,14 +30,15 @@ const GlobalStyles = createGlobalStyle`
     color: white;
     border: 2px solid var(--orange);
     padding: 1.5rem 0.8rem;
+    font-weight: 600;
     width: 160px;
     cursor: pointer;
     transition: 
-      opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
-      color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
-      background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
-      transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
-      border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     font-size: 1.8rem;
 
     &.white {
@@ -45,7 +46,8 @@ const GlobalStyles = createGlobalStyle`
       border: 2px solid var(--white);
       color: var(--orange);
       &:focus, &:hover {
-        color: var(--orange);
+        background: var(--orange);
+        color: var(--white);
         border: 2px solid var(--orange);
       }
     }
@@ -53,7 +55,10 @@ const GlobalStyles = createGlobalStyle`
       outline: none;
       background: var(--white);
       color: var(--orange);
-      border: 2px solid var(--orange);
+      border: 2px solid var(--white);
+      &.border {
+        border-color: var(--orange);
+      }
     }
   }
 
@@ -64,7 +69,7 @@ const GlobalStyles = createGlobalStyle`
 
   /* Scrollbar Styles */
   body::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
   html {
     scrollbar-width: thin;
@@ -76,9 +81,6 @@ const GlobalStyles = createGlobalStyle`
   body::-webkit-scrollbar-thumb {
     background-color: var(--orange) ;
     border-radius: 0px;
-    border: 3px solid var(--white);
-    border-right: 0;
-    border-top: 0;
   }
 
   img {
@@ -93,6 +95,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     &.underline {
       outline: none;
+      transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
       &::after {
         content: '';
         position: absolute;

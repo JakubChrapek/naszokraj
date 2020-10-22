@@ -9,7 +9,7 @@ const Wrapper = styled.section`
 const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 16rem 12rem 0 22rem;
+  margin: 20rem 16rem 0 25rem;
   max-width: 1920px;
   
   .titleWrapper {
@@ -27,15 +27,16 @@ const SectionStyles = styled.div`
     text-transform: uppercase;
     font-size: 1.6rem;
     line-height: 2rem;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0.96px;
   }
   p {
     font-size: 4.8rem;
     line-height: 6rem;
-    font-weight: 400;
+    font-weight: 600;
     margin-top: 8.2rem;
     max-width: 1600px;
+    margin-right: 6rem;
   }
 
 `
@@ -43,8 +44,8 @@ const SectionStyles = styled.div`
 
 const AboutUsSection = () => {
   return (
-    <Wrapper>
-      <SectionStyles id="#about">
+    <Wrapper id="#onas">
+      <SectionStyles>
         <div className="titleWrapper">
           <span></span>
           <h2 className="line">O nas</h2>

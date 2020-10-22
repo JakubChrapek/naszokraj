@@ -39,7 +39,7 @@ const AccordionsStyles = styled(motion.ul)`
   padding: 0;
   margin-top: 2rem;
   border-radius: 2.5rem;
-  max-width: 76rem;
+  max-width: 77rem;
   
 
 `
@@ -61,8 +61,6 @@ const ListItemStyles = styled(motion.li)`
     transform: scale(1.1);
   }
 
-
-
   &:last-child {
     margin-bottom: 0px;
   }
@@ -73,8 +71,10 @@ const ListItemStyles = styled(motion.li)`
     justify-content: space-between;
     background-color: var(--white);
     border-radius: 0.4rem;
-    padding: 2rem;
-    margin-bottom: 3rem;
+    padding: 2.2rem 2.6rem;
+    margin-bottom: 2.8rem;
+    font-weight: 700;
+    color: var(--blackText);
     transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
     span {
       width: unset;
@@ -90,10 +90,10 @@ const ListItemStyles = styled(motion.li)`
     }
   }
   .answer {
-    padding: 0 6rem 0 2rem;
+    padding: 0 6rem 0 2.6rem;
     margin-bottom: 3rem;
     font-size: 1.6rem;
-    line-height: 2.6rem;
+    line-height: 2.8rem;
     color: var(--grey);
     max-width: 58rem;
   }

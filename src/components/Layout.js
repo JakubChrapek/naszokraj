@@ -5,6 +5,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
+import useSticky from '../hooks/useSticky'
 
 const ContentStyles = styled.div`
   background: #fff;
@@ -12,13 +13,14 @@ const ContentStyles = styled.div`
 `;
 
 const Layout = ({children}) => {
+
   return (
     <>
       <GlobalStyles />
       <Typography />
       <ContentStyles>
-        <Nav />
-        {children}
+        <Nav/>
+          {children}
         <Footer />
       </ContentStyles>
     </>

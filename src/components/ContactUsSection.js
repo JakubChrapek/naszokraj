@@ -14,7 +14,7 @@ const Wrapper = styled.section`
 `
 
 const SectionStyles = styled.div`
-  margin: 10rem auto;
+  margin: 3rem auto 14rem;
   max-width: 1140px;
   
   .line {
@@ -50,14 +50,15 @@ const SectionStyles = styled.div`
   h3 {
     font-size: 3.6rem;
     line-height: 4.5rem;
-    font-weight: bold;
+    font-weight: 900;
     color: var(--black);
   }
 
   .grid {
-    margin: 6rem 5rem 0 1rem;
+    margin: 7rem 5rem 0 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 1.6rem;
     align-items: center;
   }
 
@@ -118,7 +119,7 @@ const SectionStyles = styled.div`
   .address {
     font-size: 2rem;
     font-weight: 300;
-    line-height: 2.6rem;
+    line-height: 3rem;
     margin: 2.4rem 0 0.6rem;
   }
 
@@ -126,12 +127,12 @@ const SectionStyles = styled.div`
     margin: 2rem 0 1rem;
     font-size: 2rem;
     line-height: 2rem;
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .title {
     font-size: 2.8rem;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 2.8rem;
     color: var(--black);
     margin-bottom: 0.4rem;
@@ -158,18 +159,21 @@ const SectionStyles = styled.div`
       justify-content: center;
       align-items: center;
       label {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         line-height: 2rem;
         color: var(--lightGrey);
       }
       #accept {
         outline: none;
+        :focus {
+          border: 2px solid var(--blackText);
+        }
       }
       &:hover {
         #accept {
-          border: 1px solid var(--blackText);
+          border: 2px solid var(--blackText);
           &:focus {
-            border: 1px solid var(--blackText);
+            border: 2px solid var(--blackText);
           }
         }
       }
@@ -181,7 +185,7 @@ const SectionStyles = styled.div`
       align-items: stretch;
       font-size: 2rem;
       line-height: 2rem;
-      font-weight: 400;
+      font-weight: 600;
       color: var(--blackText);
       input {
         font-weight: 300;
@@ -205,16 +209,22 @@ const SectionStyles = styled.div`
 
       input, textarea {
         margin: 2.3rem 0 2.6rem;
-        padding: 1.9rem 2.8rem;
+        padding: 1.9rem 3.2rem;
         border: 3px solid var(--lightGrey);
         border-radius: 1rem;
         transition: border-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
         color: var(--accent);
+        &::placeholder {
+          color: var(--lightGrey);
+        }
         &:hover, &:focus {
           border: 3px solid var(--accent);
           border-radius: 1rem;
           outline: none;
         }
+      }
+      textarea {
+        padding-top: 2.6rem;
       }
 
     }
@@ -225,7 +235,7 @@ const SectionStyles = styled.div`
       -moz-appearance: none;
       -o-appearance: none;
       appearance: none;
-      border: 1px solid var(--black);
+      border: 2px solid var(--black);
       border-radius: 2px;
       background-color: var(--white);
       cursor: pointer;
@@ -258,10 +268,10 @@ const SectionStyles = styled.div`
 
 const CounterStyles = styled.span`
   position: absolute;
-  bottom: 3.8rem;
-  right: 1.4rem;
-  font-size: 1.4rem;
-  line-height: 1.4rem;
+  bottom: 4.6rem;
+  right: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
   font-weight: 400;
   color: var(--lightGrey);
 `
@@ -367,7 +377,7 @@ const ContactUsSection = ({path}) => {
                 <input id="accept" name="accept" type="checkbox" required />
                 <label htmlFor="accept">Przeczytałem/łam i zgadzam się z&nbsp;<Link className="underline" to="/polityka">polityką prywatności</Link></label>
               </p>
-              <button type="submit">Wyślij</button>
+              <button className="border" type="submit">Wyślij</button>
               <AnimatePresence>
                 {message && 
                   <motion.p 

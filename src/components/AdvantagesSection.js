@@ -13,12 +13,13 @@ const Wrapper = styled.section`
   background-color: var(--white);
 `
 const SectionStyles = styled.div`
-  margin: 0 12rem 0 22rem;
-  padding: 10rem 0;
   display: grid;
   grid-template-columns: minmax(320px, 520px) 2fr;
-  grid-gap: 6rem;
+  grid-gap: 3rem;
+  padding: 14rem 0;
+  margin: 0 16rem 0 25rem;
   max-width: 1920px;
+  width: 100%;
 
   .text {
     display: flex;
@@ -40,13 +41,13 @@ const SectionStyles = styled.div`
       color: var(--lightGrey);
       font-weight: 300;
       margin-bottom: 4rem;
-      max-width: 360px;
+      max-width: 380px;
     }
 
     .title {
       font-size: 3.6rem;
       line-height: 4.5rem;
-      font-weight: bold;
+      font-weight: 700;
       color: var(--black);
       margin-bottom: 2.4rem;
       padding: 0;
@@ -72,19 +73,20 @@ const CardStyles = styled.div`
   }
 
   svg {
-    padding: 3.2rem;
+    padding: 3rem;
     background: var(--white);
     border-radius: 4px;
+    margin-left: 0.4rem;
   }
 
   .card {
     display: grid;
     background: white;
     border-radius: 4px;
-    box-shadow: 0px 4px 20px -4px rgba(0,0,0,0.08);
+    box-shadow: 0px 4px 28px -4px rgba(0,0,0,0.12);
     position: relative;
     max-width: 360px;
-    padding: 3.4rem 8rem 7.4rem 3rem;
+    padding: 5.2rem 6.6rem 7.4rem 3.6rem;
 
     &.accent {
       background: var(--accent);
@@ -116,7 +118,7 @@ const CardStyles = styled.div`
   .title {
     font-size: 2.8rem;
     line-height: 4rem;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--blackText);
     margin-top: 3rem;
   }
@@ -145,7 +147,7 @@ const AdvantagesSection = () => {
           <p className="title">Zalety regularnych przeglądów i konserwacji kotła</p>
           <span></span>
           <p>Przeglądów dokonujemy u klientów przynajmniej raz w roku. Ściśle trzymamy się wytycznych producenta urządzenia oraz przepisów prawa budowlanego. Regularność i terminowość naprawdę się opłaca.</p>
-          <a href="#kontakt"><button type="kontakt">Kontakt</button></a>
+          <a href="#kontakt"><button className="border" type="kontakt">Kontakt</button></a>
         </div>
         <CardStyles>
           <div>

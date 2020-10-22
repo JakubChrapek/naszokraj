@@ -12,9 +12,10 @@ const Wrapper = styled.section`
 const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10rem 12rem 0 22rem;
-  padding-bottom: 10rem;
+  margin: 13rem 16rem 0 25rem;
+  padding-bottom: 14rem;
   max-width: 1920px;
+  width: 100%;
   
   .titleWrapper {
     display: flex;
@@ -32,13 +33,13 @@ const SectionStyles = styled.div`
     text-transform: uppercase;
     font-size: 1.6rem;
     line-height: 2rem;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0.96px;
   }
 
   .grid {
     display: grid;
-    margin-top: 4rem;
+    margin-top: 7rem;
     grid-template-columns: 3fr 2fr;
     grid-gap: 12rem;
   }
@@ -51,10 +52,11 @@ const SectionStyles = styled.div`
 
   p {
     font-weight: 400;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     line-height: 4rem;
-    color: var(--grey);
-    margin-bottom: 3.2rem;
+    color: var(--lightGrey);
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }
 
   .accent {
@@ -79,9 +81,9 @@ const SectionStyles = styled.div`
     font-size: 20px;
     line-height: 20px;
     letter-spacing: 0;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--blackText);
-    margin-top: 4rem;
+    margin-top: 3.4rem;
     img {
       margin-right: 6rem;
     }
@@ -108,7 +110,7 @@ const {datoCmsOffer} = useStaticQuery(graphql`
   return (
     <Wrapper>
 
-      <SectionStyles id="#services">
+      <SectionStyles id="#uslugi">
         <div className="titleWrapper">
           <span></span>
           <h2 className="line">Usługi</h2>
@@ -118,9 +120,9 @@ const {datoCmsOffer} = useStaticQuery(graphql`
             <p className="accent">
               W czym możemy Ci pomóc?
             </p>
-            <p>Jesteśmy zgranym zespołem do zadań specjalnych. Oto nasz serwis:</p>
+            <p>To my - Lidka i Radek.<br/> Możesz nam zlecić takie działania:</p>
             <ul>
-              <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana gazowych i elektrycznych kotłów 1 i 2 funkcyjnych</li>
+              <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana gazowych i elektrycznych kotłów 1- i 2-funkcyjnych</li>
               <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana podgrzewaczy elektrycznych</li>
               <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja kompletnych instalacji CO</li>
               <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji gazowych</li>
