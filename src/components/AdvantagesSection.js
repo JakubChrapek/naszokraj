@@ -18,6 +18,9 @@ const SectionStyles = styled.div`
   grid-gap: 3rem;
   padding: 14rem 0;
   margin: 0 16rem 0 25rem;
+  @media only screen and (max-width: 1842px) {
+    margin: 0 10rem 0 15rem;
+  }
   max-width: 1920px;
   width: 100%;
 
@@ -61,6 +64,9 @@ const CardStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 8rem;
+  @media only screen and (max-width: 1750px) {
+    grid-gap: 6rem;
+  }
 
   > div {
     display: flex;
@@ -87,6 +93,9 @@ const CardStyles = styled.div`
     position: relative;
     max-width: 360px;
     padding: 5.2rem 6.6rem 7.4rem 3.6rem;
+    @media only screen and (max-width: 1750px) {
+      //
+    }
 
     &.accent {
       background: var(--accent);
@@ -100,6 +109,9 @@ const CardStyles = styled.div`
     }
     &:last-child {
       margin-top: 8rem;
+      @media only screen and (max-width: 1750px) {
+        margin-top: 6rem;
+      }
     }
     
   }

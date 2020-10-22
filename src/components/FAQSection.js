@@ -14,6 +14,9 @@ const Wrapper = styled.section`
 
 const SectionStyles = styled.div`
     margin: 0 12rem 0 25rem;
+    @media only screen and (max-width: 1842px) {
+      margin: 0 6rem 0 15rem;
+    }
     padding: 14rem 0;
     max-width: 1920px;
     display: grid;

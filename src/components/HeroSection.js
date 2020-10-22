@@ -10,6 +10,9 @@ const HeroSectionStyles = styled.div`
   display: grid;
   grid-template-columns: 6fr 5fr;
   height: calc(100vh - 170px);
+  @media only screen and (max-width: 1560px) {
+    height: calc(100vh - 120px);
+  }
   max-width: 1920px;
 
   .cta {
@@ -18,9 +21,23 @@ const HeroSectionStyles = styled.div`
     justify-self: stretch;
     justify-content: center;
     padding: 0 10% 10% 27rem;
+    @media only screen and (max-width: 1842px) {
+      padding: 0 8% 10% 15rem;
+    }
     @media only screen and (max-width: 1600px) {
       padding: 0 8% 10% 15%;
     }
+
+    @media only screen and (max-width: 1560px) {
+      padding: 0 8% 10% 14rem;
+    }
+    @media only screen and (max-width: 1287px) {
+      padding: 0 8% 10% 10rem;
+    }
+    @media only screen and (max-width: 1109px) {
+      padding: 0 4rem 10% 8rem;
+    } 
+    
 
     span {
       color: var(--accent);
@@ -30,10 +47,23 @@ const HeroSectionStyles = styled.div`
       color: var(--grey);
       line-height: 1.5em;
       margin-top: 2.2rem;
+      @media only screen and (max-width: 1560px) {
+        font-size: 2.4rem;
+      } 
+      @media only screen and (max-width: 1287px) {
+        font-size: 2.2rem;
+      }
+      @media only screen and (max-width: 1109px) {
+        font-size: 2rem;
+        margin-top: 1.4rem;
+      } 
     }
 
     button {
       margin-top: 8rem;
+      @media only screen and (max-width: 1109px) {
+        margin-top: 6rem;
+      } 
     }
   }
 
@@ -41,6 +71,15 @@ const HeroSectionStyles = styled.div`
     font-size: 7.2rem;
     line-height: 1.3em;
     font-weight: 900;
+    @media only screen and (max-width: 1560px) {
+      font-size: 6rem;
+    } 
+    @media only screen and (max-width: 1287px) {
+      font-size: 5.2rem;
+    }
+    @media only screen and (max-width: 1109px) {
+      font-size: 4.8rem;
+    } 
   }
 
   .contactWrapper {
@@ -52,11 +91,26 @@ const HeroSectionStyles = styled.div`
     grid-gap: 1rem;
     background-color: white;
     padding: 2.9rem 7.3rem;
+    @media only screen and (max-width: 1560px) {
+      padding: 2.2rem 5.3rem;
+    } 
+    @media only screen and (max-width: 1560px) {
+      padding: 2rem 4.6rem;
+    } 
+    @media only screen and (max-width: 1109px) {
+      padding: 1.6rem 3.6rem;
+    } 
     p {
       margin: 0 0 0.6rem;
       color: var(--accent);
       font-size: 1.6rem;
       font-weight: 700;
+      @media only screen and (max-width: 1560px) {
+        font-size: 1.5rem;
+      } 
+      @media only screen and (max-width: 1109px) {
+        font-size: 1.4rem;
+      } 
     }
 
     a {
@@ -68,6 +122,14 @@ const HeroSectionStyles = styled.div`
       font-weight: 700;
       font-size: 3.4rem;
       line-height: 3.4rem;
+      @media only screen and (max-width: 1560px) {
+        font-size: 3rem;
+        line-height: 3rem;
+      } 
+      @media only screen and (max-width: 1109px) {
+        font-size: 2.6rem;
+        line-height: 2.6rem;
+      } 
       &:hover {
         svg, img {
           transform: rotate(4deg) scale(1.04);
@@ -77,6 +139,12 @@ const HeroSectionStyles = styled.div`
 
     svg, img {
       height: 46px;
+      @media only screen and (max-width: 1560px) {
+        height: 40px;
+      } 
+      @media only screen and (max-width: 1109px) {
+        height: 36px;
+      } 
       fill: var(--accent);
       transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
@@ -94,6 +162,9 @@ const HeroSectionStyles = styled.div`
     right: 0;
     height: 100vh;
     width: 43%;
+    @media only screen and (max-width: 1109px) {
+      width: 40%;
+    } 
     z-index: 4;
   }
   .buttons-wrapper {
@@ -102,6 +173,14 @@ const HeroSectionStyles = styled.div`
     align-items: center;
     justify-content: flex-end;
     margin: 0 9rem 0 0;
+    @media only screen and (max-width: 1560px) {
+      height: 120px;
+      margin: 0 7rem 0 0;
+    } 
+    @media only screen and (max-width: 1109px) {
+      height: 100px;
+      margin: 0 4rem 0 0;
+    } 
     z-index: 5;
     position: absolute;
     top: 0; right: 0;
@@ -142,6 +221,12 @@ const OurBrandsStyles = styled.div`
     font-weight: 700;
     color: var(--lightGrey);
     margin-left: 27rem;
+    @media only screen and (max-width: 1842px) {
+      margin-left: 15rem;
+    }
+    @media only screen and (max-width: 1560px) {
+      margin-left: 14rem;
+    }
   }
 
   > div {

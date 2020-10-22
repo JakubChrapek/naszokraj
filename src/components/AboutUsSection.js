@@ -10,6 +10,9 @@ const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20rem 16rem 0 25rem;
+  @media only screen and (max-width: 1842px) {
+  margin: 20rem 10rem 0 15rem;
+  }
   max-width: 1920px;
   
   .titleWrapper {

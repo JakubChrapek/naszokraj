@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { FaWindows } from 'react-icons/fa'
 import { useEffect } from 'react'
 import useSticky from '../hooks/useSticky'
+import useCurrentWidth from '../hooks/useCurrentWidth'
 
 // const moveDown = keyframes`
 //   from {
@@ -18,12 +19,31 @@ import useSticky from '../hooks/useSticky'
 
 const NavStyles = styled.nav`
   padding: 0 6rem 0 12rem;
+  @media only screen and (max-width: 1602px) {
+    padding: 0 6rem 0 6rem;
+  } 
+  @media only screen and (max-width: 1109px) {
+    padding: 0 4rem 0 2rem;
+  } 
   margin: 0 auto;
   display: grid;
   align-content: center;
   height: 170px;
+
+  @media only screen and (max-width: 1560px) {
+    height: 120px;
+  }
+  @media only screen and (max-width: 1109px) {
+    height: 100px;
+  } 
   transform: scaleY(1);
   grid-template-columns: auto auto 43%;
+  @media only screen and (max-width: 1602px) {
+    grid-template-columns: 180px auto 43%;
+  } 
+  @media only screen and (max-width: 1109px) {
+    grid-template-columns: 160px auto 40%;
+  } 
   z-index: 3;
   max-width: 1920px;
   background-color: var(--white);
@@ -40,6 +60,12 @@ const NavStyles = styled.nav`
   ul {
     padding: 0;
     margin: 0 6.8rem 0 0;
+    @media only screen and (max-width: 1602px) {
+      margin: 0 2rem 0 0;
+    } 
+    @media only screen and (max-width: 1109px) {
+      margin: 0;
+    } 
     height: 100%;
     display: flex;
     align-items: center;
@@ -49,9 +75,15 @@ const NavStyles = styled.nav`
   li {
     list-style-type: none;
     margin-right: 2.5rem;
+    @media only screen and (max-width: 1602px) {
+      margin-right: 1.5rem;
+    } 
 
     &:last-child {
       margin-right: 1.5rem;
+      @media only screen and (max-width: 1602px) {
+        margin-right: 1rem;
+      } 
     }
     &.active, &:hover a {
       color: var(--orange);
@@ -61,6 +93,11 @@ const NavStyles = styled.nav`
     padding: 1rem;
     font-size: 1.8rem;
     line-height: 2.6rem;
+    @media only screen and (max-width: 1109px) {
+      padding: 0.8rem;
+      font-size: 1.6rem;
+      line-height: 2.3rem;
+    } 
     font-weight: 600;
     transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
@@ -84,9 +121,21 @@ const Nav = () => {
           ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
+      smaller: logo {
+        fixed(width: 180) {
+          ...GatsbyDatoCmsFixed_tracedSVG
+        }
+      }
+      smallest: logo {
+        fixed(width: 160) {
+          ...GatsbyDatoCmsFixed_tracedSVG
+        }
+      }
     }
   }
   `)
+
+  let width = useCurrentWidth()
   
   const {isSticky, element} = useSticky();
 
@@ -95,7 +144,12 @@ const Nav = () => {
     <NavStyles className={isSticky && "scrolled"}>
       <h1 ref={element}>
         <Link to="/" className="title">
-          <Img fixed={data.datoCmsHero.logo.fixed} />
+          <Img fixed={width >= 1400 
+            ? data.datoCmsHero.logo.fixed 
+            : width >= 1110 
+            ? data.datoCmsHero.smaller.fixed 
+            : data.datoCmsHero.smallest.fixed} 
+          />
         </Link>
       </h1>
       <ul>
