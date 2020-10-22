@@ -290,6 +290,7 @@ const ContactUsSection = ({path}) => {
 
   useEffect(() => {
     setRefs([botFieldRef, nameRef, emailRef, messageRef]);
+    console.log("NAME: ", formRef.current.getAttribute("name"))
   }, [])
 
   const handleChange = (e) => {
@@ -298,7 +299,7 @@ const ContactUsSection = ({path}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {}
+    const formData = {"form-name": "contact"}
     refs.map((key, i) => (formData[key.current.name] = refs[i].current.value))
     console.log(formData);
     const axiosOptions = {
@@ -346,7 +347,7 @@ const ContactUsSection = ({path}) => {
             />
           </div>
           <div className="formWrapper">
-            <form ref={formRef} onSubmit={(e) => handleSubmit(e)} name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+            <form ref={formRef} onSubmit={(e) => handleSubmit(e)} name="contact" method="POST" netlify-honeypot="bot-field" netlify data-netlify="true">
               <p className="hidden">
                 <label id="syrup" htmlFor="bot-field">Nie wypełniaj, jeśli jesteś człowiekiem<input ref={botFieldRef} name="bot-field" /></label>
               </p>
