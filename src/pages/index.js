@@ -7,7 +7,7 @@ import Advantages from "../components/AdvantagesSection"
 import FAQ from "../components/FAQSection"
 import Contact from '../components/ContactUsSection'
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <>
       <SEO title="Piece Gazowe"/>
@@ -16,7 +16,7 @@ const HomePage = () => {
       <Services />
       <Advantages />
       <FAQ />
-      <Contact />
+      <Contact path={props.location.pathname}/>
     </>
   )
 }

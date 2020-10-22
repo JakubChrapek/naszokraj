@@ -278,7 +278,7 @@ const Counter = ({currentTextLength, maxLength}) => (
   <CounterStyles>{currentTextLength} / {maxLength}</CounterStyles>
 )
 
-const ContactUsSection = () => {
+const ContactUsSection = ({path}) => {
   const [counter, setCounter] = useState('0');
   const [refs, setRefs] = useState([]);
   const [message, setMessage] = useState('');
@@ -302,8 +302,8 @@ const ContactUsSection = () => {
     refs.map((key, i) => (formData[key.current.name] = refs[i].current.value))
     console.log(formData);
     const axiosOptions = {
-      url: "/",
-      method: "post",
+      url: path,
+      method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       data: qs.stringify(formData),
     }
