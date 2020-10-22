@@ -10,6 +10,7 @@ const HeroSectionStyles = styled.div`
   display: grid;
   grid-template-columns: 6fr 5fr;
   height: calc(100vh - 120px);
+  max-width: 1920px;
 
   .cta {
     display: flex;
@@ -101,6 +102,10 @@ const HeroWrapper = styled.section`
   background-repeat: no-repeat;
   background-size: 160vw;
   background-position: 65% 82%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 `
 
 const OurBrandsStyles = styled.div`
@@ -168,7 +173,7 @@ const HeroSection = () => {
         <div className="contact">
           <div className="contactWrapper">
             <p>Problem z piecem?</p>
-            <a href={`tel:+48${datoCmsHero.phoneNumber.replace(/ /g, '')}`}>
+            <a className="underline" href={`tel:+48${datoCmsHero.phoneNumber.replace(/ /g, '')}`}>
               <img src={PhoneIcon} alt="ikona telefonu" />
               <span>{datoCmsHero.phoneNumber}</span>
             </a>

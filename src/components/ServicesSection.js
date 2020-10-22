@@ -4,10 +4,17 @@ import GatsbyImage from 'gatsby-image'
 import Icon from '../assets/images/icon-check.svg'
 import {graphql, useStaticQuery} from 'gatsby'
 
-const SectionStyles = styled.section`
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+`
+
+const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10rem 12rem 0 22rem;
+  padding-bottom: 10rem;
+  max-width: 1920px;
   
   .titleWrapper {
     display: flex;
@@ -99,30 +106,33 @@ const {datoCmsOffer} = useStaticQuery(graphql`
   }
 }`)
   return (
-    <SectionStyles id="#services">
-      <div className="titleWrapper">
-        <span></span>
-        <h2 className="line">Usługi</h2>
-      </div>
-      <div className="grid">
-        <div className="textWrapper">
-          <p className="accent">
-            W czym możemy Ci pomóc?
-          </p>
-          <p>Jesteśmy zgranym zespołem do zadań specjalnych. Oto nasz serwis:</p>
-          <ul>
-            <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana gazowych i elektrycznych kotłów 1 i 2 funkcyjnych</li>
-            <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana podgrzewaczy elektrycznych</li>
-            <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja kompletnych instalacji CO</li>
-            <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji gazowych</li>
-            <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji wodnych i kanalizacyjnych</li>
-            <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji elektrycznych</li>
-            <li><img src={Icon} alt="checkmark icon" />Instalacja klimatyzacji</li>
-          </ul>
+    <Wrapper>
+
+      <SectionStyles id="#services">
+        <div className="titleWrapper">
+          <span></span>
+          <h2 className="line">Usługi</h2>
         </div>
-        <GatsbyImage fluid={datoCmsOffer.offerImage.fluid} alt={datoCmsOffer.offerImage.alt} />
-      </div>
-    </SectionStyles>
+        <div className="grid">
+          <div className="textWrapper">
+            <p className="accent">
+              W czym możemy Ci pomóc?
+            </p>
+            <p>Jesteśmy zgranym zespołem do zadań specjalnych. Oto nasz serwis:</p>
+            <ul>
+              <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana gazowych i elektrycznych kotłów 1 i 2 funkcyjnych</li>
+              <li><img src={Icon} alt="checkmark icon" />Instalacja / wymiana podgrzewaczy elektrycznych</li>
+              <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja kompletnych instalacji CO</li>
+              <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji gazowych</li>
+              <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji wodnych i kanalizacyjnych</li>
+              <li><img src={Icon} alt="checkmark icon" />Wykonanie / modernizacja instalacji elektrycznych</li>
+              <li><img src={Icon} alt="checkmark icon" />Instalacja klimatyzacji</li>
+            </ul>
+          </div>
+          <GatsbyImage fluid={datoCmsOffer.offerImage.fluid} alt={datoCmsOffer.offerImage.alt} />
+        </div>
+      </SectionStyles>
+    </Wrapper>
   )
 }
 

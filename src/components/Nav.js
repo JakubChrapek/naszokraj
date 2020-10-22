@@ -6,12 +6,13 @@ import styled from 'styled-components'
 const NavStyles = styled.nav`
   padding: 2rem 6rem 2rem 8rem;
   position: relative;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   align-content: center;
   height: 80px;
   grid-template-columns: auto 1fr 1fr;
   z-index: 1;
+  max-width: 1920px;
 
   ul {
     padding: 0;
@@ -46,10 +47,6 @@ const NavStyles = styled.nav`
 
   button {
     margin-right: 4rem;
-    &:first-child {
-      background-color: white;
-      color: var(--accent);
-    }
     &:last-child {
       margin-right: 0;
     }
@@ -87,14 +84,14 @@ const Nav = () => {
       <ul>
         {data.datoCmsHero.navLinks.map(navLink => (
           <li>
-            <Link to={navLink.link}>
+            <Link className="underline" to={navLink.link}>
               {navLink.title}
             </Link>
           </li>
         ))}
       </ul>
       <div className="buttons-wrapper">
-        <button type="button">
+        <button type="button" className="white">
           {data.datoCmsHero.buttonColourText}
         </button>
         <button type="button">

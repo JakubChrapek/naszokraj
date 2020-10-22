@@ -1,10 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SectionStyles = styled.section`
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+`
+
+const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
   margin: 16rem 12rem 0 22rem;
+  max-width: 1920px;
   
   .titleWrapper {
     display: flex;
@@ -29,6 +35,7 @@ const SectionStyles = styled.section`
     line-height: 6rem;
     font-weight: 400;
     margin-top: 8.2rem;
+    max-width: 1600px;
   }
 
 `
@@ -36,13 +43,15 @@ const SectionStyles = styled.section`
 
 const AboutUsSection = () => {
   return (
-    <SectionStyles id="#about">
-      <div className="titleWrapper">
-        <span></span>
-        <h2 className="line">O nas</h2>
-      </div>
-      <p>O piecach wiemy wszystko - od kotłów, poprzez paliwo, po instalacje hydrauliczne i grzewcze. Jesteśmy pierwszą pomocą w przypadku awarii. Pomagamy dobrać idealny sprzęt.</p>
-    </SectionStyles>
+    <Wrapper>
+      <SectionStyles id="#about">
+        <div className="titleWrapper">
+          <span></span>
+          <h2 className="line">O nas</h2>
+        </div>
+        <p>O piecach wiemy wszystko - od kotłów, poprzez paliwo, po instalacje hydrauliczne i grzewcze. Jesteśmy pierwszą pomocą w przypadku awarii. Pomagamy dobrać idealny sprzęt.</p>
+      </SectionStyles>
+    </Wrapper>
   )
 }
 

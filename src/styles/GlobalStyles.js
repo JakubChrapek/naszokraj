@@ -9,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
     --accent: #F05D05;
     --grey: #434343;
     --lightGrey: #9F9F9F;
+    --lightestGrey: #F1F2F3;
+    --brown: #3E1F08;
   }
   html {
     font-size: 10px;
@@ -26,11 +28,33 @@ const GlobalStyles = createGlobalStyle`
   button {
     background: var(--orange);
     color: white;
-    border: 0;
-    padding: 1.2rem 0.8rem;
-    width: 150px;
+    border: 2px solid var(--orange);
+    padding: 1.5rem 0.8rem;
+    width: 160px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: 
+      opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 1.8rem;
+
+    &.white {
+      background: var(--white);
+      border: 2px solid var(--white);
+      color: var(--orange);
+      &:focus, &:hover {
+        color: var(--orange);
+        border: 2px solid var(--orange);
+      }
+    }
+    &:focus, &:hover {
+      outline: none;
+      background: var(--white);
+      color: var(--orange);
+      border: 2px solid var(--orange);
+    }
   }
 
   .gatsby-image-wrapper img[src*=base64\\,] {
@@ -63,6 +87,30 @@ const GlobalStyles = createGlobalStyle`
 
   *, *+* {
     margin: 0;
+  }
+  a {
+    text-decoration: none;
+    position: relative;
+    &.underline {
+      outline: none;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0rem;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      &:hover::after,
+      &:focus::after {
+        transform: scaleX(1);
+        outline: none;
+      }
+    }
   }
 
 `;
