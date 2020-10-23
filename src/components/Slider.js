@@ -38,6 +38,7 @@ const CardStyles = styled(motion.div)`
   position: relative;
   max-width: 280px;
   height: 235px;
+  overflow: hidden;
   
   padding: 3.2rem 4.6rem 4.4rem 2.6rem;
   color: var(--textBlack);
@@ -81,7 +82,7 @@ const CardStyles = styled(motion.div)`
   }
 `
 
-const ButtonStyles = styled.button`
+const ButtonStyles = styled(motion.button)`
   width: 50px;
   height: 50px;
   border-radius: 4px;
@@ -140,7 +141,9 @@ const CardIndicators = styled.ol`
 const Slider = () => {
   const cardAmount = Cards.length;
   const [activeCardNumber, setActiveCardNumber] = useState(0);
+  const [dragPosition, setDragPosition] = useState(null);
 
+  const constraintsRef = useRef(null)
   const handleNext = () => {
     const cardNumber = activeCardNumber === cardAmount - 1 ? 0 : activeCardNumber + 1;
     setActiveCardNumber(cardNumber);
@@ -155,6 +158,19 @@ const Slider = () => {
     setActiveCardNumber(id);
   }
 
+  const handleDragStart = (e, info) => {
+    setDragPosition(info.point.x);
+  }
+
+  const handleDragEnd = (e, info) => {
+    const prevDragPosition = dragPosition;
+    const difference = Math.abs(info.point.x - dragPosition)
+    if (difference >= 10) {
+      info.point.x < dragPosition ? handleNext() : handlePrev();
+    }
+    setDragPosition(info.point.x);
+  }
+
   return (
     <>
     <WrapperStyles style={{position: 'relative'}}>
@@ -166,8 +182,16 @@ const Slider = () => {
           accent={Cards[activeCardNumber].accent}
           className={Cards[activeCardNumber].accent && 'accent'}
           key={Cards[activeCardNumber].title}
+          ref={constraintsRef}
         >
-          <motion.div className="content">
+          <motion.div 
+            className="content"
+            drag="x"
+            onDragStart={(e, info) => handleDragStart(e, info)}
+            onDragEnd={(e, info) => handleDragEnd(e, info)}
+            dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
+            dragElastic={0.2}
+          >
             { Cards[activeCardNumber].icon === "coins" ? <FaCoins size="28px" color="#F05D05"/> :
             Cards[activeCardNumber].icon === "ecology" ? <FaLeaf size="28px" color="#F05D05"/> :
             Cards[activeCardNumber].icon === "home" ? <MdHome size="28px" color="#F05D05"/> :
@@ -177,15 +201,15 @@ const Slider = () => {
           </motion.div>
         </CardStyles>
       </AnimatePresence>
-      <ButtonStyles className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
+      <ButtonStyles whileTap={{ x: -55 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
         ←
       </ButtonStyles>
-      <ButtonStyles className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
+      <ButtonStyles whileTap={{ x: 55 }} className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
         →
       </ButtonStyles>
       <CardIndicators>
         {Cards.map((card, i) => (
-          <li onClick={() => handleClick(i)}key={card.title} className={i === activeCardNumber && 'active'} />
+          <motion.li whileTap={{ scale: 0.8 }} onClick={() => handleClick(i)}key={card.title} className={i === activeCardNumber && 'active'} />
         ))}
       </CardIndicators>
     </WrapperStyles>
