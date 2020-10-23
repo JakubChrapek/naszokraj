@@ -64,7 +64,10 @@ const NavStyles = styled.nav`
       margin: 0 2rem 0 0;
     } 
     @media only screen and (max-width: 1109px) {
-      margin: 0;
+      margin: 0 0 0 2rem;
+    } 
+    @media only screen and (max-width: 875px) {
+      margin: 0 0 0 1rem;
     } 
     height: 100%;
     display: flex;
@@ -78,11 +81,17 @@ const NavStyles = styled.nav`
     @media only screen and (max-width: 1602px) {
       margin-right: 1.5rem;
     } 
+    @media only screen and (max-width: 875px) {
+      margin-right: 0.6rem;
+    } 
 
     &:last-child {
       margin-right: 1.5rem;
       @media only screen and (max-width: 1602px) {
         margin-right: 1rem;
+      } 
+      @media only screen and (max-width: 875px) {
+        margin-right: 0;
       } 
     }
     &.active, &:hover a {
@@ -97,6 +106,11 @@ const NavStyles = styled.nav`
       padding: 0.8rem;
       font-size: 1.6rem;
       line-height: 2.3rem;
+    } 
+    @media only screen and (max-width: 875px) {
+      padding: 0.8rem 0.6rem;
+      font-size: 1.4rem;
+      line-height: 2rem;
     } 
     font-weight: 600;
     transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);

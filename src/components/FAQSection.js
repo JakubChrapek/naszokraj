@@ -14,13 +14,31 @@ const Wrapper = styled.section`
 
 const SectionStyles = styled.div`
     margin: 0 12rem 0 25rem;
+    padding: 14rem 0;
     @media only screen and (max-width: 1842px) {
       margin: 0 6rem 0 15rem;
     }
-    padding: 14rem 0;
+    @media only screen and (max-width: 1560px) {
+      margin: 0 6rem 0 14rem;
+    }
+    @media only screen and (max-width: 1287px) {
+      margin: 0 6rem 0 10rem;
+      padding: 10rem 0;
+    }
+    @media only screen and (max-width: 1109px) {
+      margin: 0 6rem 0 4rem;
+      padding: 8rem 0;
+    }
+    /* @media only screen and (max-width: 870px) {
+      margin: 0 6rem 0 4rem;
+    } */
     max-width: 1920px;
     display: grid;
     grid-template-columns: minmax(320px, 5fr) 4fr;
+    @media only screen and (max-width: 1448px) {
+      grid-template-columns: minmax(320px, 10fr) 4fr;
+    }
+    
 
     .text {
       display: flex;
@@ -34,6 +52,14 @@ const SectionStyles = styled.div`
       font-weight: 900;
       color: var(--black);
       margin-bottom: 2.4rem;
+      @media only screen and (max-width: 1238px) {
+        font-size: 3rem;
+        line-height: 3.8rem;
+      }
+      @media only screen and (max-width: 1014px) {
+        font-size: 2.6rem;
+        line-height: 3.2rem;
+      }
     }
 
     span {
@@ -55,6 +81,9 @@ const SectionStyles = styled.div`
         top: 50%;
         transform: translateY(-50%);
         right: -10vw;
+        @media only screen and (max-width: 1448px) {
+          width: 35%;
+        }
       }
       svg {
         z-index: 1;
@@ -73,7 +102,7 @@ const FAQSection = () => {
         </div>
         <div className="questionMark">
           <img src={Blob} />
-          <FaQuestion size="260px" color="#F05D05" />
+          <FaQuestion size="16vw" color="#F05D05" />
         </div>
       </SectionStyles>
     </Wrapper>

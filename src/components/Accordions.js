@@ -73,6 +73,12 @@ const ListItemStyles = styled(motion.li)`
     border-radius: 0.4rem;
     padding: 2.2rem 2.6rem;
     margin-bottom: 2.8rem;
+    line-height: 1.3em;
+    @media only screen and (max-width: 1238px) {
+      font-size: 1.8rem;
+      padding: 1.8rem 2.1rem;
+      margin-bottom: 2.2rem;
+    }
     font-weight: 700;
     color: var(--blackText);
     transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -87,6 +93,9 @@ const ListItemStyles = styled(motion.li)`
       &.open {
         transform: rotate(180deg) translateY(5px);
       }
+    }
+    .text {
+      margin-right: 2rem;
     }
   }
   .answer {
@@ -131,7 +140,7 @@ function Item({question, answer}, ...props) {
         layout
         transition={{duration: 0.2, ease: 'easeOut'}}
       >
-        <p>{question}<span className={isOpen ? 'open chevron' : 'chevron'}><FaChevronDown size="32px" color="#F05D05"/></span></p>
+        <p><span className="text">{question}</span><span className={isOpen ? 'open chevron' : 'chevron'}><FaChevronDown size="32px" color="#F05D05"/></span></p>
       </motion.div>
       <AnimatePresence>
         {isOpen && <Content content={answer}/>}

@@ -5,14 +5,21 @@ import {graphql, useStaticQuery} from 'gatsby'
 import PhoneIcon from '../assets/images/icon-phone.svg'
 import HeroBg from '../assets/images/hero-bg.svg'
 import GatsbyImage from 'gatsby-image'
+import useCurrentWidth from '../hooks/useCurrentWidth'
 
 const HeroSectionStyles = styled.div`
   display: grid;
   grid-template-columns: 6fr 5fr;
   height: calc(100vh - 170px);
+  max-height: calc(1024px - 170px);
   @media only screen and (max-width: 1560px) {
     height: calc(100vh - 120px);
-  }
+    max-height: calc(1024px - 120px);
+  } 
+  @media only screen and (max-width: 1109px) {
+    height: calc(100vh - 100px);
+    max-height: calc(1024px - 100px);
+  } 
   max-width: 1920px;
 
   .cta {
@@ -35,7 +42,10 @@ const HeroSectionStyles = styled.div`
       padding: 0 8% 10% 10rem;
     }
     @media only screen and (max-width: 1109px) {
-      padding: 0 4rem 10% 8rem;
+      padding: 0 4rem 10% 6rem;
+    } 
+    @media only screen and (max-width: 965px) {
+      padding: 0 1rem 8% 6rem;
     } 
     
 
@@ -80,6 +90,9 @@ const HeroSectionStyles = styled.div`
     @media only screen and (max-width: 1109px) {
       font-size: 4.8rem;
     } 
+    @media only screen and (max-width: 910px) {
+      font-size: 4rem;
+    } 
   }
 
   .contactWrapper {
@@ -99,7 +112,7 @@ const HeroSectionStyles = styled.div`
     } 
     @media only screen and (max-width: 1109px) {
       padding: 1.6rem 3.6rem;
-    } 
+    }  
     p {
       margin: 0 0 0.6rem;
       color: var(--accent);
@@ -161,6 +174,7 @@ const HeroSectionStyles = styled.div`
     top: 0;
     right: 0;
     height: 100vh;
+    max-height: 1024px;
     width: 43%;
     @media only screen and (max-width: 1109px) {
       width: 40%;
@@ -181,11 +195,18 @@ const HeroSectionStyles = styled.div`
       height: 100px;
       margin: 0 4rem 0 0;
     } 
+    @media only screen and (max-width: 890px) {
+      margin: 0 1rem;
+    }
+
     z-index: 5;
     position: absolute;
     top: 0; right: 0;
     button {
-      margin-right: 3rem;
+      margin-right: 3rem; 
+      @media only screen and (max-width: 890px) {
+        margin-right: 1rem; 
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -201,6 +222,24 @@ const HeroWrapper = styled.section`
   background-repeat: no-repeat;
   background-size: 160vw;
   background-position: 115% 82%;
+
+  @media only screen and (max-width: 1560px) {
+    background-position: 115% 86%;
+  }
+  @media only screen and (max-width: 1320px) {
+    background-position: 115% 90%;
+  }
+  @media only screen and (max-width: 1109px) {
+    background-position: 115% 100%;
+  }
+  @media only screen and (max-width: 1109px) {
+    background-position: 115% 120%;
+  }
+  @media only screen and (max-width: 920px) {
+    background-position: 110% 100%;
+    background-size: 200vw;
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -227,6 +266,12 @@ const OurBrandsStyles = styled.div`
     @media only screen and (max-width: 1560px) {
       margin-left: 14rem;
     }
+    @media only screen and (max-width: 1287px) {
+      margin-left: 10rem;
+    }
+    @media only screen and (max-width: 1109px) {
+      margin-left: 6rem;
+    }
   }
 
   > div {
@@ -237,6 +282,21 @@ const OurBrandsStyles = styled.div`
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 80px 80px;
     gap: 6rem 12rem;
+    @media only screen and (max-width: 1587px) {
+      margin-top: 7rem;
+    }
+    @media only screen and (max-width: 1287px) {
+      gap: 5rem 9rem;
+    }
+    @media only screen and (max-width: 1147px) {
+      gap: 3rem 6rem;
+    }
+    @media only screen and (max-width: 968px) {
+      gap: 2rem 4rem;
+    }
+    @media only screen and (max-width: 840px) {
+      gap: 1rem 3rem;
+    }
   }
   .gatsby-image-wrapper {
     img, picture img {
@@ -244,14 +304,20 @@ const OurBrandsStyles = styled.div`
     }
   }
 `
-
+// heroImage {
+//           fluid(maxWidth: 1000) {
+//           ...GatsbyDatoCmsFluid_tracedSVG
+//           }
+//           title
+//         }
 const HeroSection = () => {
+  let width = useCurrentWidth()
   const {datoCmsHero, allDatoCmsBrandImage} = useStaticQuery(graphql`
     query HeroQuery {
       datoCmsHero {
         heroImage {
-          fluid(maxWidth: 1000) {
-          ...GatsbyDatoCmsFluid_tracedSVG
+          fluid {
+            ...GatsbyDatoCmsFluid_tracedSVG
           }
           title
         }
@@ -292,7 +358,8 @@ const HeroSection = () => {
               <span>{datoCmsHero.phoneNumber}</span>
             </a>
           </div>
-          <GatsbyImage fluid={datoCmsHero.heroImage.fluid} />
+          {console.log(datoCmsHero)}
+          <GatsbyImage fluid={width >= 1024 ? datoCmsHero.heroImage[0].fluid : datoCmsHero.heroImage[1].fluid} />
           <div className="buttons-wrapper">
             <button type="button" className="white">
               {datoCmsHero.buttonLightText}

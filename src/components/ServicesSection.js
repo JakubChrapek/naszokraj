@@ -13,10 +13,24 @@ const SectionStyles = styled.div`
   display: flex;
   flex-direction: column;
   margin: 13rem 16rem 0 25rem;
+  padding-bottom: 14rem;
   @media only screen and (max-width: 1842px) {
     margin: 13rem 10rem 0 15rem;
   }
-  padding-bottom: 14rem;
+  @media only screen and (max-width: 1560px) {
+    margin: 13rem 8rem 0 14rem;
+  }
+  @media only screen and (max-width: 1287px) {
+    margin: 13rem 6rem 0 10rem;
+    padding-bottom: 10rem;
+  }
+  @media only screen and (max-width: 1109px) {
+    margin: 13rem 6rem 0 6rem;
+  }
+  @media only screen and (max-width: 870px) {
+    margin: 10rem 2rem 0 4rem;
+    padding-bottom: 8rem;
+  }
   max-width: 1920px;
   width: 100%;
   
@@ -45,6 +59,19 @@ const SectionStyles = styled.div`
     margin-top: 7rem;
     grid-template-columns: 3fr 2fr;
     grid-gap: 12rem;
+    @media only screen and (max-width: 1682px) {
+      grid-gap: 8rem;
+    }
+    @media only screen and (max-width: 1238px) {
+      grid-gap: 6rem;
+      margin-top: 5rem;
+    }
+    @media only screen and (max-width: 1238px) {
+      grid-gap: 3rem;
+    }
+    @media only screen and (max-width: 870px) {
+      grid-gap: 2rem;
+    }
   }
 
   .textWrapper {
@@ -60,6 +87,16 @@ const SectionStyles = styled.div`
     color: var(--lightGrey);
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+    @media only screen and (max-width: 1238px) {
+      font-size: 2.2rem;
+      line-height: 3.3rem;
+      margin-bottom: 0.5rem;
+    }
+    @media only screen and (max-width: 1014px) {
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .accent {
@@ -68,6 +105,16 @@ const SectionStyles = styled.div`
     line-height: 4.5rem;
     color: var(--black);
     margin-bottom: 1.6rem;
+    @media only screen and (max-width: 1238px) {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 1.2rem;
+    }
+    @media only screen and (max-width: 1014px) {
+      font-size: 2.6rem;
+      line-height: 3.2rem;
+      margin-bottom: 1rem;
+    }
   }
 
   ul {
@@ -81,14 +128,53 @@ const SectionStyles = styled.div`
     display: flex;
     align-items: center;
     list-style: none;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 2rem;
+    line-height: 2.6rem;
     letter-spacing: 0;
     font-weight: 700;
     color: var(--blackText);
     margin-top: 3.4rem;
     img {
       margin-right: 6rem;
+    }
+
+    @media only screen and (max-width: 1438px) {
+      margin-top: 3rem;
+      img {
+        margin-right: 4rem;
+      }
+    }
+    @media only screen and (max-width: 1238px) {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      margin-top: 2.4rem;
+      img {
+        margin-right: 3rem;
+      }
+    }
+    @media only screen and (max-width: 1014px) {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-top: 2rem;
+      img {
+        margin-right: 2rem;
+        width: 24px;
+      }
+    }
+    @media only screen and (max-width: 870px) {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      margin-top: 1.8rem;
+      img {
+        margin-right: 1.6rem;
+        width: 20px;
+      }
+    }
+  }
+
+  .gatsby-image-wrapper {
+    img {
+      object-fit: contain !important;
     }
   }
 

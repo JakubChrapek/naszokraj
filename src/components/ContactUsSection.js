@@ -16,6 +16,10 @@ const Wrapper = styled.section`
 const SectionStyles = styled.div`
   margin: 3rem auto 14rem;
   max-width: 1140px;
+
+  @media only screen and (max-width: 1308px) {
+    margin: 3rem 6rem 10rem;
+  }
   
   .line {
     height: 3px;
@@ -44,6 +48,11 @@ const SectionStyles = styled.div`
       line-height: 3rem;
       letter-spacing: 0.2;
       color: var(--lightGrey);
+      @media only screen and (max-width: 1014px) {
+        font-size: 1.8rem;
+        font-weight: 300;
+        line-height: 2.7rem;
+      }
     }
   }
 
@@ -52,6 +61,15 @@ const SectionStyles = styled.div`
     line-height: 4.5rem;
     font-weight: 900;
     color: var(--black);
+
+    @media only screen and (max-width: 1238px) {
+      font-size: 3rem;
+      line-height: 3.8rem;
+    }
+    @media only screen and (max-width: 1014px) {
+      font-size: 2.6rem;
+      line-height: 3.2rem;
+    }
   }
 
   .grid {
@@ -60,6 +78,13 @@ const SectionStyles = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 1.6rem;
     align-items: center;
+    @media only screen and (max-width: 1308px) {
+      margin: 7rem 0 0;
+    }
+    @media only screen and (max-width: 914px) {
+      grid-template-columns: 3fr 4fr;
+      grid-gap: 4rem;
+    }
   }
 
   .contactDetails {
@@ -67,6 +92,12 @@ const SectionStyles = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding-bottom: 8rem;
+    @media only screen and (max-width: 1308px) {
+      margin-left: 6rem;
+    }
+    @media only screen and (max-width: 914px) {
+      margin-left: 0rem;
+    }
 
     a {
       display: flex;
@@ -79,6 +110,12 @@ const SectionStyles = styled.div`
       color: var(--blackText);
       text-decoration: none;
       position: relative;
+      @media only screen and (max-width: 1014px) {
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 0.7rem 0.4rem 0;
+        font-size: 1.8rem;
+        line-height: 2.3rem;
+      }
 
       &::after {
         content: '';
@@ -108,6 +145,10 @@ const SectionStyles = styled.div`
       svg {
         margin-right: 1.1rem;
         transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        @media only screen and (max-width: 1014px) {
+          margin-right: 1rem;
+          width: 20px;
+        }
       }
     }
   }
@@ -121,6 +162,11 @@ const SectionStyles = styled.div`
     font-weight: 300;
     line-height: 3rem;
     margin: 2.4rem 0 0.6rem;
+    @media only screen and (max-width: 1014px) {
+      font-size: 1.8rem;
+      line-height: 2.7rem;
+      margin: 2.2rem 0 0.5rem;
+    }
   }
 
   .name {
@@ -128,6 +174,11 @@ const SectionStyles = styled.div`
     font-size: 2rem;
     line-height: 2rem;
     font-weight: 600;
+    @media only screen and (max-width: 1014px) {
+      margin: 1.8rem 0 0.9rem;
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
   }
 
   .title {
@@ -136,6 +187,10 @@ const SectionStyles = styled.div`
     line-height: 2.8rem;
     color: var(--black);
     margin-bottom: 0.4rem;
+    @media only screen and (max-width: 1014px) {
+      font-size: 2.6rem;
+      line-height: 2.6rem;
+    }
   }
 
   .formWrapper {
@@ -146,6 +201,9 @@ const SectionStyles = styled.div`
       button {
         margin-top: 3rem;
         align-self:center;
+        @media only screen and (max-width: 1308px) {
+          margin-top: 2.7rem;
+        }
       }
     }
 
@@ -161,6 +219,10 @@ const SectionStyles = styled.div`
       label {
         font-size: 1.2rem;
         line-height: 2rem;
+        @media only screen and (max-width: 1308px) {
+          font-size: 1.1rem;
+          line-height: 1.8rem;
+        }
         color: var(--lightGrey);
       }
       #accept {
@@ -185,6 +247,10 @@ const SectionStyles = styled.div`
       align-items: stretch;
       font-size: 2rem;
       line-height: 2rem;
+      @media only screen and (max-width: 1308px) {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+      }
       font-weight: 600;
       color: var(--blackText);
       input {
@@ -210,6 +276,10 @@ const SectionStyles = styled.div`
       input, textarea {
         margin: 2.3rem 0 2.6rem;
         padding: 1.9rem 3.2rem;
+        @media only screen and (max-width: 1308px) {
+          margin: 2.1rem 0 2.3rem;
+          padding: 1.7rem 2.9rem;
+        }
         border: 3px solid var(--lightGrey);
         border-radius: 1rem;
         transition: border-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -225,12 +295,19 @@ const SectionStyles = styled.div`
       }
       textarea {
         padding-top: 2.6rem;
+        @media only screen and (max-width: 1308px) {
+          padding-top: 2.3rem;
+        }
       }
 
     }
     #accept {    
       height: 13px;
       width: 13px;
+      @media only screen and (max-width: 1308px) {
+        height: 12px;
+        width: 12px;
+      }
       -webkit-appearance: none;
       -moz-appearance: none;
       -o-appearance: none;
@@ -252,7 +329,11 @@ const SectionStyles = styled.div`
         color: white;
         position: absolute;
         left: -1.95rem;
-        top: 0.025rem;
+        top: 0.1rem;
+        @media only screen and (max-width: 1308px) {
+          left: -1.85rem;
+          top: 0;
+        }
         transition: opacity .2s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
 
@@ -272,6 +353,12 @@ const CounterStyles = styled.span`
   right: 1.8rem;
   font-size: 1.6rem;
   line-height: 1.6rem;
+  @media only screen and (max-width: 1308px) {
+    bottom: 4.1rem;
+    right: 1.6rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
   font-weight: 400;
   color: var(--lightGrey);
 `

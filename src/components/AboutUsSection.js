@@ -11,8 +11,18 @@ const SectionStyles = styled.div`
   flex-direction: column;
   margin: 20rem 16rem 0 25rem;
   @media only screen and (max-width: 1842px) {
-  margin: 20rem 10rem 0 15rem;
+    margin: 20rem 10rem 0 15rem;
   }
+  @media only screen and (max-width: 1560px) {
+    margin: 16rem 8rem 0 14rem;
+  }
+  @media only screen and (max-width: 1287px) {
+    margin: 14rem 6rem 0 10rem;
+  }
+  @media only screen and (max-width: 1109px) {
+    margin: 14rem 6rem 0 4rem;
+  }
+
   max-width: 1920px;
   
   .titleWrapper {
@@ -40,6 +50,16 @@ const SectionStyles = styled.div`
     margin-top: 8.2rem;
     max-width: 1600px;
     margin-right: 6rem;
+    @media only screen and (max-width: 1410px) {
+      font-size: 4rem;
+      line-height: 5rem;
+      margin-top: 6rem;
+    }
+    @media only screen and (max-width: 1204px) {
+      font-size: 3rem;
+      line-height: 3.9rem;
+      margin-top: 4rem;
+    }
   }
 
 `
