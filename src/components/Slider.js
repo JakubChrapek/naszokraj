@@ -99,6 +99,13 @@ const ButtonStyles = styled(motion.button)`
   background-color: transparent !important;
   border: none !important;
   color: var(--accent);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   &.accent {
     color: white;
   }
@@ -127,6 +134,7 @@ const CardIndicators = styled.ol`
     border-radius: 16px;
     background-color: transparent;
     border: 2px solid var(--accent);
+    transition: background-color .3s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
     &.active {
       background-color: var(--accent);
     }
@@ -163,9 +171,8 @@ const Slider = () => {
   }
 
   const handleDragEnd = (e, info) => {
-    const prevDragPosition = dragPosition;
     const difference = Math.abs(info.point.x - dragPosition)
-    if (difference >= 10) {
+    if (difference >= 12) {
       info.point.x < dragPosition ? handleNext() : handlePrev();
     }
     setDragPosition(info.point.x);
@@ -179,6 +186,7 @@ const Slider = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{when: 'beforeChildren'}}
           accent={Cards[activeCardNumber].accent}
           className={Cards[activeCardNumber].accent && 'accent'}
           key={Cards[activeCardNumber].title}
@@ -196,15 +204,23 @@ const Slider = () => {
             Cards[activeCardNumber].icon === "ecology" ? <FaLeaf size="28px" color="#F05D05"/> :
             Cards[activeCardNumber].icon === "home" ? <MdHome size="28px" color="#F05D05"/> :
             <FaFire size="28px" color="#F05D05"/> }
-            <p className="title">{Cards[activeCardNumber].title}</p>
-            <p className="paragraph">{Cards[activeCardNumber].paragraph}</p>
+            <motion.p 
+              className="title"
+            >
+              {Cards[activeCardNumber].title}
+            </motion.p>
+            <motion.p 
+              className="paragraph"
+            >
+              {Cards[activeCardNumber].paragraph}
+            </motion.p>
           </motion.div>
         </CardStyles>
       </AnimatePresence>
-      <ButtonStyles whileTap={{ x: -55 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
+      <ButtonStyles whileTap={{ x: -90 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
         ←
       </ButtonStyles>
-      <ButtonStyles whileTap={{ x: 55 }} className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
+      <ButtonStyles whileTap={{ x: 90 }} className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
         →
       </ButtonStyles>
       <CardIndicators>
