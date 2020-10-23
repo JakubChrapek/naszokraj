@@ -79,6 +79,11 @@ const ListItemStyles = styled(motion.li)`
       padding: 1.8rem 2.1rem;
       margin-bottom: 2.2rem;
     }
+    @media only screen and (max-width: 767px) {
+      font-size: 1.4rem;
+      padding: 1.6rem 1.6rem;
+      margin-bottom: 2.2rem;    
+    }
     font-weight: 700;
     color: var(--blackText);
     transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -97,6 +102,11 @@ const ListItemStyles = styled(motion.li)`
     .text {
       margin-right: 2rem;
     }
+    @media only screen and (max-width: 767px) {
+      .text {
+        margin-right: 1.4rem;
+      }  
+    }
   }
   .answer {
     padding: 0 6rem 0 2.6rem;
@@ -105,6 +115,13 @@ const ListItemStyles = styled(motion.li)`
     line-height: 2.8rem;
     color: var(--grey);
     max-width: 58rem;
+    @media only screen and (max-width: 767px) {
+      padding: 0 2rem 0 1.6rem;
+      margin-bottom: 2
+      rem;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+    }
   }
 `
 

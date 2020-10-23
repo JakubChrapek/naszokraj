@@ -7,11 +7,15 @@ import {graphql, Link, useStaticQuery} from 'gatsby'
 import { AnimatePresence, motion } from 'framer-motion'
 import axios from "axios"
 import * as qs from "query-string"
+import useCurrentWidth from '../hooks/useCurrentWidth'
 
 const Wrapper = styled.section`
   margin: 0 auto;
   padding-top: 7rem;
   position: relative;
+  @media only screen and (max-width: 767px) {
+    padding-top: 0;
+  }
 `
 
 const SectionStyles = styled.div`
@@ -21,12 +25,15 @@ const SectionStyles = styled.div`
   @media only screen and (max-width: 1308px) {
     margin: 3rem 6rem 10rem;
   }
+  @media only screen and (max-width: 767px) {
+    margin: 0 3rem 6rem;
+  }
   
   .line {
     height: 3px;
     width: 39px;
     background-color: var(--accent);
-    margin: 2rem 0;
+    margin: 1.4rem 0;
   }
 
   .message {
@@ -42,6 +49,9 @@ const SectionStyles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: 767px) {
+      align-items: flex-start;
+    }
 
     p {
       font-size: 2rem;
@@ -71,6 +81,12 @@ const SectionStyles = styled.div`
       font-size: 2.6rem;
       line-height: 3.2rem;
     }
+    @media only screen and (max-width: 767px) {
+      font-size: 1.8rem;
+      line-height: 2.3rem;
+      font-size: clamp(2rem, 1.5136rem + 0.8949vw, 2.2rem);
+      line-height: clamp(2.6rem, 1.8705rem + 1.3423vw, 2.9rem);
+    }
   }
 
   .grid {
@@ -86,6 +102,11 @@ const SectionStyles = styled.div`
       grid-template-columns: 3fr 4fr;
       grid-gap: 4rem;
     }
+    @media only screen and (max-width: 767px) {
+      margin: 3rem 0 4rem;
+      grid-template-columns: 1fr;
+      grid-gap: 3rem;
+    }
   }
 
   .contactDetails {
@@ -98,6 +119,10 @@ const SectionStyles = styled.div`
     }
     @media only screen and (max-width: 914px) {
       margin-left: 0rem;
+    }
+    @media only screen and (max-width: 914px) {
+      margin-left: 0rem;
+      padding-bottom: 2rem;
     }
 
     a {
@@ -116,6 +141,13 @@ const SectionStyles = styled.div`
         padding: 0.4rem 0.7rem 0.4rem 0;
         font-size: 1.8rem;
         line-height: 2.3rem;
+      }
+      @media only screen and (max-width: 1014px) {
+        font-size: 1.6rem;
+        line-height: 2rem;
+      }
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 0.7rem;
       }
 
       &::after {
@@ -150,6 +182,10 @@ const SectionStyles = styled.div`
           margin-right: 1rem;
           width: 20px;
         }
+        @media only screen and (max-width: 767px) {
+          margin-right: 1.4rem;
+          width: 20px;
+        }
       }
     }
   }
@@ -168,6 +204,11 @@ const SectionStyles = styled.div`
       line-height: 2.7rem;
       margin: 2.2rem 0 0.5rem;
     }
+    @media only screen and (max-width: 767px) {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin: 1.2rem 0 0.5rem;
+    }
   }
 
   .name {
@@ -180,6 +221,9 @@ const SectionStyles = styled.div`
       font-size: 1.8rem;
       line-height: 1.8rem;
     }
+    @media only screen and (max-width: 767px) {
+      margin: 2rem 0 1.5rem;
+    }
   }
 
   .title {
@@ -191,6 +235,10 @@ const SectionStyles = styled.div`
     @media only screen and (max-width: 1014px) {
       font-size: 2.6rem;
       line-height: 2.6rem;
+    }
+    @media only screen and (max-width: 767px) {
+      font-size: 2rem;
+      line-height: 2rem;
     }
   }
 
@@ -205,6 +253,9 @@ const SectionStyles = styled.div`
         @media only screen and (max-width: 1308px) {
           margin-top: 2.7rem;
         }
+        @media only screen and (max-width: 767px) {
+          margin-top: 2rem;
+        }
       }
     }
 
@@ -217,12 +268,19 @@ const SectionStyles = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      @media only screen and (max-width: 767px) {
+        align-items: flex-start;
+      }
       label {
         font-size: 1.2rem;
         line-height: 2rem;
         @media only screen and (max-width: 1308px) {
           font-size: 1.1rem;
           line-height: 1.8rem;
+        }
+        @media only screen and (max-width: 767px) {
+          font-size: 1rem;
+          line-height: 1.6rem;
         }
         color: var(--lightGrey);
       }
@@ -251,6 +309,10 @@ const SectionStyles = styled.div`
       @media only screen and (max-width: 1308px) {
         font-size: 1.8rem;
         line-height: 1.8rem;
+      }
+      @media only screen and (max-width: 767px) {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
       }
       font-weight: 600;
       color: var(--blackText);
@@ -281,6 +343,10 @@ const SectionStyles = styled.div`
           margin: 2.1rem 0 2.3rem;
           padding: 1.7rem 2.9rem;
         }
+        @media only screen and (max-width: 767px) {
+          margin: 1.9rem 0 2.1rem;
+          padding: 1.5rem 2.3rem;
+        }
         border: 3px solid var(--lightGrey);
         border-radius: 1rem;
         transition: border-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -309,6 +375,10 @@ const SectionStyles = styled.div`
         height: 12px;
         width: 12px;
       }
+      @media only screen and (max-width: 767px) {
+        height: 16px;
+        width: 18px;
+      }
       -webkit-appearance: none;
       -moz-appearance: none;
       -o-appearance: none;
@@ -335,6 +405,10 @@ const SectionStyles = styled.div`
           left: -1.85rem;
           top: 0;
         }
+        @media only screen and (max-width: 767px) {
+          left: -2.2rem;
+          font-size: 1.6rem;
+        }
         transition: opacity .2s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
 
@@ -359,6 +433,12 @@ const CounterStyles = styled.span`
     right: 1.6rem;
     font-size: 1.5rem;
     line-height: 1.5rem;
+  }
+  @media only screen and (max-width: 767px) {
+    bottom: 3.1rem;
+    right: 1.2rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
   }
   font-weight: 400;
   color: var(--lightGrey);
@@ -385,6 +465,7 @@ const ContactUsSection = ({path}) => {
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  let width = useCurrentWidth();
 
   useEffect(() => {
     setRefs([botFieldRef, nameRef, emailRef, messageRef]);
@@ -431,7 +512,7 @@ const ContactUsSection = ({path}) => {
         <div className="grid">
           <div className="contactDetails">
             <p className="title">Nasze biuro</p>
-            <span className="line"></span>
+            {width > 767 && <span className="line"></span>}
             <p className="address">Krakowska 15, Kraków<br/>15-000</p>
             <ContactDetails 
               name="Radek"

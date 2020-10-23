@@ -293,9 +293,8 @@ const HeroWrapper = styled.section`
     background-size: 200vw;
   }
   @media only screen and (max-width: 767px) {
-    background-size: 240vw;
-    background-attachment: fixed;
-    background-position: -200px -40%;
+    background-size: 1200px;
+    background-position: 85% 130%;
   }
 
   display: flex;

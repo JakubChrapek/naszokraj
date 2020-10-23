@@ -133,9 +133,8 @@ const SectionStyles = styled.div`
     @media only screen and (max-width: 767px) {
       font-size: 1.8rem;
       line-height: 2.3rem;
-      font-size: clamp(1.8rem, 1.5136rem + 0.8949vw, 2.2rem);
-      line-height: clamp(2.3rem, 1.8705rem + 1.3423vw, 2.9rem);      
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 1.5136rem + 0.8949vw, 2.2rem);
+      line-height: clamp(2.6rem, 1.8705rem + 1.3423vw, 2.9rem);
     }
   }
 

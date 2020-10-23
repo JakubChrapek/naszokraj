@@ -129,16 +129,16 @@ const CardIndicators = styled.ol`
   padding: 0;
   width: 100%;
   li {
-    width: 16px;
-    height: 16px;
-    border-radius: 16px;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
     background-color: transparent;
     border: 2px solid var(--accent);
     transition: background-color .3s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
     &.active {
       background-color: var(--accent);
     }
-    margin-right: 1.6rem;
+    margin-right: 1.8rem;
     &:last-child {
       margin-right: 0;
     }

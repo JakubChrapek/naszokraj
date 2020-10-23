@@ -5,6 +5,7 @@ import {FaQuestion} from 'react-icons/fa'
 import {graphql, useStaticQuery} from 'gatsby'
 import Accordions from "./Accordions"
 import Blob from "../assets/images/blob.svg"
+import useCurrentWidth from '../hooks/useCurrentWidth'
 
 const Wrapper = styled.section`
   margin: 0 auto;
@@ -29,16 +30,17 @@ const SectionStyles = styled.div`
       margin: 0 6rem 0 4rem;
       padding: 8rem 0;
     }
-    /* @media only screen and (max-width: 870px) {
-      margin: 0 6rem 0 4rem;
-    } */
     max-width: 1920px;
     display: grid;
     grid-template-columns: minmax(320px, 5fr) 4fr;
     @media only screen and (max-width: 1448px) {
       grid-template-columns: minmax(320px, 10fr) 4fr;
     }
-    
+    @media only screen and (max-width: 767px) {
+      margin: 0 3rem;
+      padding: 6rem 0 4rem;
+      grid-template-columns: 1fr;
+    }
 
     .text {
       display: flex;
@@ -60,7 +62,12 @@ const SectionStyles = styled.div`
         font-size: 2.6rem;
         line-height: 3.2rem;
       }
-    }
+      @media only screen and (max-width: 767px) {
+        font-size: 1.8rem;
+        line-height: 2.3rem;
+        font-size: clamp(2rem, 1.5136rem + 0.8949vw, 2.2rem);
+        line-height: clamp(2.6rem, 1.8705rem + 1.3423vw, 2.9rem);    
+      }
 
     span {
       width: 39px;
@@ -89,9 +96,11 @@ const SectionStyles = styled.div`
         z-index: 1;
       }
     }
+  }
 `
 
 const FAQSection = () => {
+  let width = useCurrentWidth();
   return (
     <Wrapper>
       <SectionStyles>
@@ -100,10 +109,12 @@ const FAQSection = () => {
           <span></span>
           <Accordions />
         </div>
-        <div className="questionMark">
-          <img src={Blob} />
-          <FaQuestion size="16vw" color="#F05D05" />
-        </div>
+        { width > 767 && 
+          <div className="questionMark">
+            <img src={Blob} />
+            <FaQuestion size="16vw" color="#F05D05" />
+          </div>
+        }
       </SectionStyles>
     </Wrapper>
   )

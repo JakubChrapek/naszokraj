@@ -43,7 +43,7 @@ const SectionStyles = styled.div`
     grid-gap: 1rem;
     grid-template-columns: 1fr;
     margin: 0 3rem;
-    padding: 4rem 0;
+    padding: 4rem 0 6rem;
   }
   max-width: 1920px;
   width: 100%;

@@ -15,6 +15,10 @@ const FooterStyles = styled.footer`
     padding: 6rem 4rem 5rem;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: 767px) {
+      padding: 6rem 3rem 4rem;
+      align-items: flex-start;
+    }
   }
 
   ul, li {
@@ -26,6 +30,10 @@ const FooterStyles = styled.footer`
     margin: 2rem 0;
     display: flex;
     justify-content: center;
+    @media only screen and (max-width: 767px) {
+      flex-direction: column;
+      margin: 4rem 0 1rem -1.2rem;
+    }
   }
 
   li {
@@ -54,6 +62,11 @@ const FooterStyles = styled.footer`
     line-height: 2rem;
     color: var(--lightGrey);
     transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    @media only screen and (max-width: 767px) {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 1.7rem;
+    }
 
     span {
       transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -103,22 +116,22 @@ const Footer = () => {
         </Link>
         <ul>
           <li>
-            <Link className="underline" to="/#top">Strona Główna</Link>
+            <Link to="/#top">Strona Główna</Link>
           </li>
           <li>
-            <Link className="underline" to="/#onas">O nas</Link>
+            <Link to="/#onas">O nas</Link>
           </li>
           <li>
-            <Link className="underline" to="/#uslugi">Usługi</Link>
+            <Link to="/#uslugi">Usługi</Link>
           </li>
           <li>
-            <Link className="underline" to="/#bazaklienta">Baza Klienta</Link>
+            <Link to="/#bazaklienta">Baza Klienta</Link>
           </li>
           <li>
-            <Link className="underline" to="/#kontakt">Kontakt</Link>
+            <Link to="/#kontakt">Kontakt</Link>
           </li>
         </ul>
-        <p>Stronę stworzyli: <span><a className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
+        <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank"className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
       </div>
     </FooterStyles>
   )
