@@ -112,7 +112,7 @@ const Footer = () => {
             <Link className="underline" to="/#uslugi">Usługi</Link>
           </li>
           <li>
-            <Link className="underline" to="/#baza">Baza Klienta</Link>
+            <Link className="underline" to="/#bazaklienta">Baza Klienta</Link>
           </li>
           <li>
             <Link className="underline" to="/#kontakt">Kontakt</Link>

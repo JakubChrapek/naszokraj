@@ -31,6 +31,11 @@ const SectionStyles = styled.div`
     margin: 10rem 2rem 0 4rem;
     padding-bottom: 8rem;
   }
+  @media only screen and (max-width: 767px) {
+    margin: 0 3rem;
+    padding-bottom: 4rem;
+  }
+
   max-width: 1920px;
   width: 100%;
   
@@ -72,6 +77,11 @@ const SectionStyles = styled.div`
     @media only screen and (max-width: 870px) {
       grid-gap: 2rem;
     }
+    @media only screen and (max-width: 767px) {
+      margin-top: 6rem;
+      grid-template-columns: 1fr;
+      grid-gap: 4rem;
+    }
   }
 
   .textWrapper {
@@ -97,6 +107,11 @@ const SectionStyles = styled.div`
       line-height: 2.6rem;
       margin-bottom: 0.5rem;
     }
+    @media only screen and (max-width: 767px) {
+      font-size: 1.6rem;
+      line-height: 2.3rem;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .accent {
@@ -113,6 +128,13 @@ const SectionStyles = styled.div`
     @media only screen and (max-width: 1014px) {
       font-size: 2.6rem;
       line-height: 3.2rem;
+      margin-bottom: 1rem;
+    }
+    @media only screen and (max-width: 767px) {
+      font-size: 1.8rem;
+      line-height: 2.3rem;
+      font-size: clamp(1.8rem, 1.5136rem + 0.8949vw, 2.2rem);
+      line-height: clamp(2.3rem, 1.8705rem + 1.3423vw, 2.9rem);      
       margin-bottom: 1rem;
     }
   }
@@ -170,6 +192,14 @@ const SectionStyles = styled.div`
         width: 20px;
       }
     }
+    @media only screen and (max-width: 767px) {
+      align-items: flex-start;
+      img {
+        margin-right: 3.6rem;
+        margin-top: 0.3rem;
+        width: 28px;
+      }
+    }
   }
 
   .gatsby-image-wrapper {
@@ -198,11 +228,10 @@ const {datoCmsOffer} = useStaticQuery(graphql`
 }`)
   return (
     <Wrapper>
-
-      <SectionStyles id="#uslugi">
+      <SectionStyles >
         <div className="titleWrapper">
           <span></span>
-          <h2 className="line">Usługi</h2>
+          <h2 className="line" id="uslugi">Usługi</h2>
         </div>
         <div className="grid">
           <div className="textWrapper">

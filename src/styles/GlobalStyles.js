@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 2rem;
+    scroll-behavior: smooth;
   }
 
   fieldset {
@@ -45,6 +46,12 @@ const GlobalStyles = createGlobalStyle`
       padding: 1.2rem 0.7rem;
       width: 140px;
       font-size: 1.6rem;
+    } 
+
+    @media only screen and (max-width: 767px) {
+      padding: 1.1rem 0.7rem;
+      width: 130px;
+      font-size: 1.4rem;
     } 
     &.white {
       background: var(--white);

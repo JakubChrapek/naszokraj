@@ -22,6 +22,12 @@ const HeroSectionStyles = styled.div`
   } 
   max-width: 1920px;
 
+  @media only screen and (max-width: 767px) {
+    height: unset;
+    max-height: unset;
+    grid-template-columns: 1fr;
+  } 
+
   .cta {
     display: flex;
     flex-direction: column;
@@ -47,6 +53,9 @@ const HeroSectionStyles = styled.div`
     @media only screen and (max-width: 965px) {
       padding: 0 1rem 8% 6rem;
     } 
+    @media only screen and (max-width: 767px) {
+      padding: 6rem 3rem;
+    } 
     
 
     span {
@@ -67,12 +76,20 @@ const HeroSectionStyles = styled.div`
         font-size: 2rem;
         margin-top: 1.4rem;
       } 
+      @media only screen and (max-width: 767px) {
+        font-size: 1.5rem;
+        line-height: 1.3em;
+        margin-top: 2rem;
+      } 
     }
 
     button {
       margin-top: 8rem;
       @media only screen and (max-width: 1109px) {
         margin-top: 6rem;
+      } 
+      @media only screen and (max-width: 767px) {
+        margin-top: 3.5rem;
       } 
     }
   }
@@ -92,6 +109,10 @@ const HeroSectionStyles = styled.div`
     } 
     @media only screen and (max-width: 910px) {
       font-size: 4rem;
+    } 
+    @media only screen and (max-width: 767px) {
+      font-size: 2.4rem;
+      font-size: clamp(2.6rem, 2.17rem, 3.2rem);
     } 
   }
 
@@ -113,6 +134,10 @@ const HeroSectionStyles = styled.div`
     @media only screen and (max-width: 1109px) {
       padding: 1.6rem 3.6rem;
     }  
+    @media only screen and (max-width: 767px) {
+      padding: 0;
+      background-color: unset;
+    }  
     p {
       margin: 0 0 0.6rem;
       color: var(--accent);
@@ -124,6 +149,9 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1109px) {
         font-size: 1.4rem;
       } 
+      @media only screen and (max-width: 767px) {
+        font-size: 1.5rem;
+      }
     }
 
     a {
@@ -134,14 +162,20 @@ const HeroSectionStyles = styled.div`
       text-decoration: none;
       font-weight: 700;
       font-size: 3.4rem;
-      line-height: 3.4rem;
+      line-height: 1em;
       @media only screen and (max-width: 1560px) {
         font-size: 3rem;
-        line-height: 3rem;
       } 
       @media only screen and (max-width: 1109px) {
         font-size: 2.6rem;
-        line-height: 2.6rem;
+      } 
+      @media only screen and (max-width: 767px) {
+        font-size: 3.2rem;
+        grid-gap: 1.2rem;
+        align-items: center;
+        span {
+          margin-top: -0.8rem;
+        }
       } 
       &:hover {
         svg, img {
@@ -158,6 +192,10 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1109px) {
         height: 36px;
       } 
+      @media only screen and (max-width: 767px) {
+        height: 48px;
+        margin-bottom: -0.2rem;
+      } 
       fill: var(--accent);
       transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
@@ -167,6 +205,11 @@ const HeroSectionStyles = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    @media only screen and (max-width: 767px) {
+      align-items: center;
+      justify-content: center;
+      padding: 0 2rem;
+    } 
   }
 
   .gatsby-image-wrapper {
@@ -202,13 +245,22 @@ const HeroSectionStyles = styled.div`
     z-index: 5;
     position: absolute;
     top: 0; right: 0;
-    button {
+    a {
       margin-right: 3rem; 
       @media only screen and (max-width: 890px) {
         margin-right: 1rem; 
       }
+      
       &:last-child {
         margin-right: 0;
+      }
+      &:first-child {
+        button {
+          background-color: white;
+          &:hover {
+            background-color: var(--orange);
+          }
+        }
       }
     }
 
@@ -222,6 +274,7 @@ const HeroWrapper = styled.section`
   background-repeat: no-repeat;
   background-size: 160vw;
   background-position: 115% 82%;
+  overflow: hidden;
 
   @media only screen and (max-width: 1560px) {
     background-position: 115% 86%;
@@ -239,6 +292,11 @@ const HeroWrapper = styled.section`
     background-position: 110% 100%;
     background-size: 200vw;
   }
+  @media only screen and (max-width: 767px) {
+    background-size: 240vw;
+    background-attachment: fixed;
+    background-position: -200px -40%;
+  }
 
   display: flex;
   flex-direction: column;
@@ -248,6 +306,9 @@ const HeroWrapper = styled.section`
 
 const OurBrandsStyles = styled.div`
   margin-top: -6rem;
+  @media only screen and (max-width: 767px) {
+    margin-top: 10rem;
+  }
   width: 100%;
   max-width: 1920px;
   display: flex;
@@ -256,7 +317,7 @@ const OurBrandsStyles = styled.div`
   p {
     align-self: flex-start;
     font-size: 2.6rem;
-    line-height: 2.6rem;
+    line-height: 1em;
     font-weight: 700;
     color: var(--lightGrey);
     margin-left: 27rem;
@@ -271,6 +332,10 @@ const OurBrandsStyles = styled.div`
     }
     @media only screen and (max-width: 1109px) {
       margin-left: 6rem;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-left: 3rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -296,6 +361,16 @@ const OurBrandsStyles = styled.div`
     }
     @media only screen and (max-width: 840px) {
       gap: 1rem 3rem;
+    }
+    @media only screen and (max-width: 767px) {
+      max-width: calc(100% - 6rem);
+      gap: 2rem 1rem;
+      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(90px,1fr));
+      grid-template-rows: unset;
+    }
+    @media only screen and (max-width: 350px) {
+      grid-template-columns: repeat(auto-fill, minmax(80px,1fr));
     }
   }
   .gatsby-image-wrapper {
@@ -342,13 +417,14 @@ const HeroSection = () => {
       }
     }
   `)
+
   return (    
     <HeroWrapper bg={HeroBg} bgColor="#fff">
       <HeroSectionStyles>
         <div className="cta">
           <h1>{datoCmsHero.titleDark}<br/><span>{datoCmsHero.titleColour}</span></h1>
           <p>{datoCmsHero.paragraph}</p>
-          <button className="border">{datoCmsHero.contactButtonText}</button>
+          <a href="/#kontakt"><button className="border">{datoCmsHero.contactButtonText}</button></a>
         </div>
         <div className="contact">
           <div className="contactWrapper">
@@ -359,23 +435,40 @@ const HeroSection = () => {
             </a>
           </div>
           {console.log(datoCmsHero)}
-          <GatsbyImage fluid={width >= 1024 ? datoCmsHero.heroImage[0].fluid : datoCmsHero.heroImage[1].fluid} />
-          <div className="buttons-wrapper">
-            <button type="button" className="white">
-              {datoCmsHero.buttonLightText}
-            </button>
-            <button type="button">
-              {datoCmsHero.buttonColourText}
-            </button>
-          </div>
+          {width > 767 && 
+          <>
+            <GatsbyImage fluid={width >= 1024 ? datoCmsHero.heroImage[0].fluid : datoCmsHero.heroImage[1].fluid} />
+            <div className="buttons-wrapper">
+              <a href="/#bazaklienta">
+                <button type="button" className="white">
+                  {datoCmsHero.buttonLightText}
+                </button>
+              </a>
+              <a href="/#kontakt">
+                <button type="button">
+                  {datoCmsHero.buttonColourText}
+                </button>
+              </a>
+            </div>
+          </>
+          }
+          
         </div>
       </HeroSectionStyles>
       <OurBrandsStyles>
         <p>Nasze marki</p>
         <div>
-          {allDatoCmsBrandImage.nodes.reverse().map((node) => (
-            <GatsbyImage key={node.image.title} fluid={node.image.fluid} alt={node.image.alt} />
-          ))}
+          {
+            width <= 767 ? 
+            
+            allDatoCmsBrandImage.nodes.reverse().slice(1).map((node) => (
+              <GatsbyImage key={node.image.title} fluid={node.image.fluid} alt={node.image.alt} />
+            ))
+          :
+            allDatoCmsBrandImage.nodes.reverse().map((node) => (
+              <GatsbyImage key={node.image.title} fluid={node.image.fluid} alt={node.image.alt} />
+            ))
+          }
         </div>
       </OurBrandsStyles>
     </HeroWrapper>

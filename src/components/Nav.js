@@ -162,6 +162,8 @@ const Nav = () => {
             ? data.datoCmsHero.logo.fixed 
             : width >= 1110 
             ? data.datoCmsHero.smaller.fixed 
+            : width <= 767
+            ? data.datoCmsHero.smaller.fixed
             : data.datoCmsHero.smallest.fixed} 
           />
         </Link>
@@ -169,20 +171,14 @@ const Nav = () => {
       <ul>
         {data.datoCmsHero.navLinks.map(navLink => (
           <li key={navLink.title}>
-            <Link to={navLink.link}>
+            <a 
+              href={navLink.title === 'Strona główna' ? '/#' : navLink.link}
+            >
               {navLink.title}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
-      {/* <div className="buttons-wrapper">
-        <button type="button" className="white">
-          {data.datoCmsHero.buttonColourText}
-        </button>
-        <button type="button">
-          {data.datoCmsHero.buttonLightText}
-        </button>
-      </div> */}
     </NavStyles>
   )
 }

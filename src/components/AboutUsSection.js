@@ -22,6 +22,9 @@ const SectionStyles = styled.div`
   @media only screen and (max-width: 1109px) {
     margin: 14rem 6rem 0 4rem;
   }
+  @media only screen and (max-width: 767px) {
+    margin: 6rem 3rem;
+  }
 
   max-width: 1920px;
   
@@ -31,10 +34,13 @@ const SectionStyles = styled.div`
   }
 
   span {
-    width: 39px;
-    height: 3px;
+    width: 3.9rem;
+    height: 0.3rem;
     background-color: var(--accent);
-    margin-right: 18px;
+    margin-right: 1.8rem;
+    @media only screen and (max-width: 767px) {
+      margin-right: 1.4rem;
+    }
   }
   h2 {
     text-transform: uppercase;
@@ -42,6 +48,10 @@ const SectionStyles = styled.div`
     line-height: 2rem;
     font-weight: 600;
     letter-spacing: 0.96px;
+    @media only screen and (max-width: 767px) {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
   }
   p {
     font-size: 4.8rem;
@@ -57,8 +67,15 @@ const SectionStyles = styled.div`
     }
     @media only screen and (max-width: 1204px) {
       font-size: 3rem;
-      line-height: 3.9rem;
+      line-height: 1.3em;
       margin-top: 4rem;
+    }
+    @media only screen and (max-width: 767px) {
+      font-size: 2rem;
+      font-size: clamp(2rem, 1.7852rem + 0.6711vw, 2.3rem);
+      margin-top: 5rem;
+      padding-left: 1rem;
+      margin-right: 0rem;
     }
   }
 
@@ -67,11 +84,11 @@ const SectionStyles = styled.div`
 
 const AboutUsSection = () => {
   return (
-    <Wrapper id="#onas">
+    <Wrapper>
       <SectionStyles>
         <div className="titleWrapper">
           <span></span>
-          <h2 className="line">O nas</h2>
+          <h2 className="line" id="onas">O nas</h2>
         </div>
         <p>O piecach wiemy wszystko - od kotłów, poprzez paliwo, po instalacje hydrauliczne i grzewcze. Jesteśmy pierwszą pomocą w przypadku awarii. Pomagamy dobrać idealny sprzęt.</p>
       </SectionStyles>

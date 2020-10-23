@@ -10,6 +10,7 @@ import * as qs from "query-string"
 
 const Wrapper = styled.section`
   margin: 0 auto;
+  padding-top: 7rem;
   position: relative;
 `
 
@@ -423,7 +424,7 @@ const ContactUsSection = ({path}) => {
     <Wrapper>
       <SectionStyles>
         <div className="textCenter">
-          <h3>Skontaktuj się z nami</h3>
+          <h3 id="kontakt">Skontaktuj się z nami</h3>
           <span className="line"></span>
           <p>Wypełnij krótki formularz, wyślij e-mail lub zadzwoń do nas!</p>
         </div>
