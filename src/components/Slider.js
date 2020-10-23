@@ -217,10 +217,10 @@ const Slider = () => {
           </motion.div>
         </CardStyles>
       </AnimatePresence>
-      <ButtonStyles whileTap={{ x: -90 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
+      <ButtonStyles transition={{duration: .15}} whileTap={{ x: -30 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
         ←
       </ButtonStyles>
-      <ButtonStyles whileTap={{ x: 90 }} className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
+      <ButtonStyles transition={{duration: .15}} whileTap={{ x: 30 }} className={Cards[activeCardNumber].accent ? "accent next" : "next"} type="button" onClick={handleNext}>
         →
       </ButtonStyles>
       <CardIndicators>
