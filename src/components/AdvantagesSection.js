@@ -42,6 +42,8 @@ const SectionStyles = styled.div`
   @media only screen and (max-width: 767px) {
     grid-gap: 1rem;
     grid-template-columns: 1fr;
+    margin: 0 3rem;
+    padding: 4rem 0;
   }
   max-width: 1920px;
   width: 100%;
@@ -74,6 +76,9 @@ const SectionStyles = styled.div`
       @media only screen and (max-width: 1287px) {
         font-size: 1.7rem;
         line-height: 2.5rem;
+      }
+      @media only screen and (max-width: 767px) {
+        margin-bottom: 3rem;
       }
     }
 
