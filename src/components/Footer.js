@@ -32,19 +32,28 @@ const FooterStyles = styled.footer`
     justify-content: center;
     @media only screen and (max-width: 767px) {
       flex-direction: column;
-      margin: 4rem 0 1rem -1.2rem;
+      margin: 4rem 0 1rem -0.6rem;
     }
   }
 
   li {
-    padding: 0;
+    padding: 1rem 0;
     margin-right: 2.6rem;
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 2.2rem;
+    @media only screen and (max-width: 767px) {
+      padding: 0;
+      margin: 0 0 2rem;
+    }
     a {
       color: var(--brown);
       padding: 1.6rem;
+      @media only screen and (max-width: 767px) {
+        padding: 0.8rem 0.6rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
+      }
     }
     .underline:after {
       background-color: var(--brown);

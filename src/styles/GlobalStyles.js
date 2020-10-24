@@ -142,7 +142,7 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
     color: white;
-    right: 0px;
+    right: 10px;
     bottom: 40px;
     @media only screen and (min-width: 768px) {
       right: 20px;
