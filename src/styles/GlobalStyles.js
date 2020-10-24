@@ -122,6 +122,12 @@ const GlobalStyles = createGlobalStyle`
         transform-origin: left center;
         transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
+      &.underline.short {
+        &::after {
+          left: 1.6rem;
+          width: calc(100% - 3.2rem);
+        }
+      }
       &:hover::after,
       &:focus::after {
         transform: scaleX(1);

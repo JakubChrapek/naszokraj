@@ -268,7 +268,8 @@ const AdvantagesSection = () => {
           <p>Przeglądów dokonujemy u klientów przynajmniej raz w roku. Ściśle trzymamy się wytycznych producenta urządzenia oraz przepisów prawa budowlanego. Regularność i terminowość naprawdę się opłaca.</p>
           <a href="#kontakt"><button className="border" type="kontakt">Kontakt</button></a>
         </div>
-        { width > 767 ?
+        {console.log("WIDTH: ", width)}
+        { typeof window === "undefined" ? <></> : width > 767 ?
           (
             <CardStyles>
               <div>
@@ -300,7 +301,9 @@ const AdvantagesSection = () => {
             </CardStyles>
           )
           :
+          (
             <Slider />
+          )
         }
       </SectionStyles>
     </Wrapper>

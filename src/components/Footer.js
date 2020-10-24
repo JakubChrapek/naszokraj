@@ -116,19 +116,19 @@ const Footer = () => {
         </Link>
         <ul>
           <li>
-            <Link className="underline" to="/#top">Strona Główna</Link>
+            <Link className="underline short" to="/#top">Strona Główna</Link>
           </li>
           <li>
-            <Link className="underline" to="/#onas">O nas</Link>
+            <Link className="underline short" to="/#onas">O nas</Link>
           </li>
           <li>
-            <Link className="underline" to="/#uslugi">Usługi</Link>
+            <Link className="underline short" to="/#uslugi">Usługi</Link>
           </li>
           <li>
-            <Link className="underline" to="/#bazaklienta">Baza Klienta</Link>
+            <Link className="underline short" to="/#bazaklienta">Baza Klienta</Link>
           </li>
           <li>
-            <Link className="underline" to="/#kontakt">Kontakt</Link>
+            <Link className="underline short" to="/#kontakt">Kontakt</Link>
           </li>
         </ul>
         <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>

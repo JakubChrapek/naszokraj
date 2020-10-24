@@ -29,7 +29,7 @@ const Cards = [
   }
 ]
 
-const CardStyles = styled(motion.div)`
+const SliderCardStyles = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background: white;
@@ -181,14 +181,15 @@ const Slider = () => {
   return (
     <>
     <WrapperStyles style={{position: 'relative'}}>
+    {console.log("W SLIDERZE")}
       <AnimatePresence exitBeforeEnter>
-        <CardStyles
+        <SliderCardStyles
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{when: 'beforeChildren'}}
           accent={Cards[activeCardNumber].accent}
-          className={Cards[activeCardNumber].accent && 'accent'}
+          className={Cards[activeCardNumber].accent ? 'accent' : ""}
           key={Cards[activeCardNumber].title}
           ref={constraintsRef}
         >
@@ -215,7 +216,7 @@ const Slider = () => {
               {Cards[activeCardNumber].paragraph}
             </motion.p>
           </motion.div>
-        </CardStyles>
+        </SliderCardStyles>
       </AnimatePresence>
       <ButtonStyles transition={{duration: .15}} whileTap={{ x: -30 }} className={Cards[activeCardNumber].accent ? "accent prev" : "prev"} type="button" onClick={handlePrev}>
         ←
@@ -225,7 +226,7 @@ const Slider = () => {
       </ButtonStyles>
       <CardIndicators>
         {Cards.map((card, i) => (
-          <motion.li whileTap={{ scale: 0.8 }} onClick={() => handleClick(i)}key={card.title} className={i === activeCardNumber && 'active'} />
+          <motion.li whileTap={{ scale: 0.8 }} onClick={() => handleClick(i)}key={card.title} className={i === activeCardNumber ? 'active' : ""} />
         ))}
       </CardIndicators>
     </WrapperStyles>
