@@ -33,6 +33,7 @@ const HeroSectionStyles = styled.div`
     flex-direction: column;
     justify-self: stretch;
     justify-content: center;
+    align-items: flex-start;
     padding: 0 10% 10% 27rem;
     @media only screen and (max-width: 1842px) {
       padding: 0 8% 10% 15rem;
@@ -83,7 +84,7 @@ const HeroSectionStyles = styled.div`
       } 
     }
 
-    button {
+    a {
       margin-top: 8rem;
       @media only screen and (max-width: 1109px) {
         margin-top: 6rem;
@@ -272,29 +273,25 @@ const HeroWrapper = styled.section`
   background-image: url(${({bg}) => bg});
   background-color: ${({bgColor}) => bgColor};
   background-repeat: no-repeat;
-  background-size: 160vw;
-  background-position: 115% 82%;
+  background-size: 1800px;
+  background-position: -600px -975px;
   overflow: hidden;
 
-  @media only screen and (max-width: 1560px) {
-    background-position: 115% 86%;
-  }
-  @media only screen and (max-width: 1320px) {
-    background-position: 115% 90%;
-  }
-  @media only screen and (max-width: 1109px) {
-    background-position: 115% 100%;
-  }
-  @media only screen and (max-width: 1109px) {
-    background-position: 115% 120%;
-  }
-  @media only screen and (max-width: 920px) {
-    background-position: 110% 100%;
-    background-size: 200vw;
+  @media only screen and (max-width: 1390px) {
+    background-position: -600px -940px;
   }
   @media only screen and (max-width: 767px) {
     background-size: 1200px;
-    background-position: 85% 130%;
+    background-position: -300px -730px;
+  }
+  @media only screen and (max-width: 422px) {
+    background-position: -300px -720px;
+  }
+  @media only screen and (max-width: 354px) {
+    background-position: -300px -700px;
+  }
+  @media only screen and (max-width: 310px) {
+    background-position: -300px -680px;
   }
 
   display: flex;
@@ -305,6 +302,9 @@ const HeroWrapper = styled.section`
 
 const OurBrandsStyles = styled.div`
   margin-top: -6rem;
+  @media only screen and (max-width: 1360px) {
+    margin-top: -2rem;
+  }
   @media only screen and (max-width: 767px) {
     margin-top: 10rem;
   }
@@ -433,7 +433,6 @@ const HeroSection = () => {
               <span>{datoCmsHero.phoneNumber}</span>
             </a>
           </div>
-          {console.log(datoCmsHero)}
           {width > 767 && 
           <>
             <GatsbyImage fluid={width >= 1024 ? datoCmsHero.heroImage[0].fluid : datoCmsHero.heroImage[1].fluid} />

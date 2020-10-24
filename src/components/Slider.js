@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components';
 import {FaCoins, FaFire, FaLeaf} from 'react-icons/fa'
 import {MdHome} from 'react-icons/md'

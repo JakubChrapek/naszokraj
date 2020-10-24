@@ -2,8 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components'
 import {BsEnvelopeFill} from 'react-icons/bs'
 import {FaPhone} from 'react-icons/fa'
-import GatsbyImage from 'gatsby-image'
-import {graphql, Link, useStaticQuery} from 'gatsby'
+import {Link} from 'gatsby'
 import { AnimatePresence, motion } from 'framer-motion'
 import axios from "axios"
 import * as qs from "query-string"
@@ -469,7 +468,6 @@ const ContactUsSection = ({path}) => {
 
   useEffect(() => {
     setRefs([botFieldRef, nameRef, emailRef, messageRef]);
-    console.log("NAME: ", formRef.current.getAttribute("name"))
   }, [])
 
   const handleChange = (e) => {
@@ -480,7 +478,6 @@ const ContactUsSection = ({path}) => {
     e.preventDefault();
     const formData = {"form-name": "contact"}
     refs.map((key, i) => (formData[key.current.name] = refs[i].current.value))
-    console.log(formData);
     const axiosOptions = {
       url: path,
       method: "POST",
@@ -526,7 +523,7 @@ const ContactUsSection = ({path}) => {
             />
           </div>
           <div className="formWrapper">
-            <form ref={formRef} onSubmit={(e) => handleSubmit(e)} name="contact" method="POST" netlify-honeypot="bot-field" netlify data-netlify="true">
+            <form ref={formRef} onSubmit={(e) => handleSubmit(e)} name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
               <p className="hidden">
                 <label id="syrup" htmlFor="bot-field">Nie wypełniaj, jeśli jesteś człowiekiem<input ref={botFieldRef} name="bot-field" /></label>
               </p>

@@ -12,7 +12,6 @@ export function wrapPageElement({element, props}) {
 }
 
 export const onRouteUpdate = ({ location }) => {
-  console.log(location)
   if (location.hash) {
     window.setTimeout(scrollTo(location.hash), 10)
   }

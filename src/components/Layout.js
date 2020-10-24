@@ -5,7 +5,6 @@ import Nav from './Nav'
 import Footer from './Footer'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
-import useSticky from '../hooks/useSticky'
 if (typeof window !== 'undefined') {
   // Make scroll behavior of internal links smooth
   // eslint-disable-next-line global-require

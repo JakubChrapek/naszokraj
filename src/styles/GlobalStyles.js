@@ -130,6 +130,48 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .scroll {
+    background-color: var(--accent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    right: 0px;
+    bottom: 40px;
+    @media only screen and (min-width: 768px) {
+      right: 20px;
+    }
+    position: fixed;
+    z-index: 2;
+    opacity: 0.65;
+    cursor: pointer;
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+    transition: 
+      opacity .2s ease-in-out, 
+      transform .2s cubic-bezier(0.645, 0.045, 0.355, 1),
+      background-color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: 0 9px 25px 0 rgba(132,128,177,0.28);
+    border: none;
+    outline: none;
+    &:hover {
+      background-color: var(--orange);
+      opacity: 1;
+      transform: scale(1);
+      border: none;
+      svg {
+        transform: scale(1.2);
+      }
+    }
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+      transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
 `;
 
 export default GlobalStyles;

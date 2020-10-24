@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import GatsbyImage from 'gatsby-image'
 import {FaQuestion} from 'react-icons/fa'
-import {graphql, useStaticQuery} from 'gatsby'
 import Accordions from "./Accordions"
 import Blob from "../assets/images/blob.svg"
 import useCurrentWidth from '../hooks/useCurrentWidth'
@@ -68,7 +66,7 @@ const SectionStyles = styled.div`
         font-size: clamp(2rem, 1.5136rem + 0.8949vw, 2.2rem);
         line-height: clamp(2.6rem, 1.8705rem + 1.3423vw, 2.9rem);    
       }
-
+    }
     span {
       width: 39px;
       height: 3px;
@@ -96,7 +94,7 @@ const SectionStyles = styled.div`
         z-index: 1;
       }
     }
-  }
+
 `
 
 const FAQSection = () => {
@@ -111,7 +109,7 @@ const FAQSection = () => {
         </div>
         { width > 767 && 
           <div className="questionMark">
-            <img src={Blob} />
+            <img src={Blob} alt=""/>
             <FaQuestion size="16vw" color="#F05D05" />
           </div>
         }

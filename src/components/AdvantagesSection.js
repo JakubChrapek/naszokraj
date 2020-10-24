@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import GatsbyImage from 'gatsby-image'
-import {graphql, useStaticQuery} from 'gatsby'
 import Card from './Card'
 import useCurrentWidth from '../hooks/useCurrentWidth'
 import Slider from './Slider'

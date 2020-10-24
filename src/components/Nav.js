@@ -1,13 +1,11 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import {Link, graphql, useStaticQuery} from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { useState } from 'react'
-import { FaWindows } from 'react-icons/fa'
-import { useEffect } from 'react'
-import useSticky from '../hooks/useSticky'
 import useCurrentWidth from '../hooks/useCurrentWidth'
 import { AnimatePresence, motion } from 'framer-motion'
+import ScrollToTop from "react-scroll-to-top";
 
 const variants = {
   list: {
@@ -23,8 +21,7 @@ const variants = {
       opacity: 0,
       scaleY: 0,
       transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.3,
+        when: "afterChildren",
       },
     },
     exit: {
@@ -39,7 +36,7 @@ const variants = {
   item: {
     visible: {
       opacity: 1,
-      x: 0,
+      x: 0
     },
     hidden: {
       opacity: 0,
@@ -172,7 +169,7 @@ const NavStyles = styled(motion.nav)`
       font-size: 1.4rem;
       line-height: 2rem;
     } 
-    @media only screen and (max-width: 875px) {
+    @media only screen and (max-width: 767px) {
       padding: 0.8rem 0.6rem;
       font-size: 1.6rem;
       line-height: 2rem;
@@ -249,80 +246,92 @@ const Nav = () => {
   let width = useCurrentWidth();
 
   return (
-    <NavStyles
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className={open ? "open" : ""}
-    >
-      <h1>
-        <Link to="/" className="title">
-          <Img fixed={width >= 1400 
-            ? data.datoCmsHero.logo.fixed 
-            : width >= 1110 
-            ? data.datoCmsHero.smaller.fixed 
-            : width <= 767
-            ? data.datoCmsHero.smaller.fixed
-            : data.datoCmsHero.smallest.fixed} 
-          />
-        </Link>
-      </h1>
-      <AnimatePresence>
-        {(width > 767 || open) && (
-          <motion.ul
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={variants.list}
-            
-            className={open ? "open" : ""}
-          >
-            {width <= 767 ? data.datoCmsHero.navLinks.map(navLink => (
-              <motion.li variants={variants.item} onClick={() => setOpen(false)} key={navLink.title}>
-                <a 
-                  href={navLink.title === 'Strona główna' ? '/#' : navLink.link}
-                >
-                  {navLink.title}
-                </a>
-              </motion.li>
-            ))
-            :
-            data.datoCmsHero.navLinks.slice(3).map(navLink => (
-              <motion.li onClick={() => setOpen(false)} key={navLink.title}>
-                <a 
-                  href={navLink.title === 'Strona główna' ? '/#' : navLink.link}
-                >
-                  {navLink.title}
-                </a>
-              </motion.li>
-            ))
-            }
-          </motion.ul>
-        )}
-      </AnimatePresence>
-      <MenuButton
-        title="menu button for toggling mobile menu"
-        aria-label="menu button for toggling mobile menu"
+    <>
+      <NavStyles
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className={open ? "open" : ""}
-        onClick={() => setOpen(!open)}
       >
-        <motion.span
-          initial={{opacity: 1}}
-          animate={open ? {scale: 0.8, rotate: -45, y: 6} : {scale: 1, rotate: 0, y: 0}}
-          transition={open ? {delay: 0.2, duration: 0.2} : {delay: 0, duration: .2}}  
-        ></motion.span>
-        <motion.span
-          initial={{opacity: 1}}
-          animate={open ? {x: 20, opacity: 0} : {x: 0, opacity: 1}}
-          transition={open ? {duration: 0.2} : {delay: 0.2, duration: .2}}
-        ></motion.span>
-        <motion.span
-          initial={{opacity: 1}}
-          animate={open ? {scale: 0.8, rotate: 45, y: -6} : {scale: 1, rotate: 0, y: 0}}
-          transition={open ? {delay: 0.2, duration: 0.2} : {delay: 0, duration: .2}}
-        ></motion.span>
-      </MenuButton>
-    </NavStyles>
+        <h1>
+          <Link to="/" className="title">
+            <Img fixed={width >= 1400 
+              ? data.datoCmsHero.logo.fixed 
+              : width >= 1110 
+              ? data.datoCmsHero.smaller.fixed 
+              : width <= 767
+              ? data.datoCmsHero.smaller.fixed
+              : data.datoCmsHero.smallest.fixed} 
+            />
+          </Link>
+        </h1>
+        <AnimatePresence>
+          {(width > 767 || open) && (
+            <motion.ul
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={variants.list}
+              
+              className={open ? "open" : ""}
+            >
+              {width <= 767 ? data.datoCmsHero.navLinks.map(navLink => (
+                <motion.li variants={variants.item} onClick={() => setOpen(false)} key={navLink.title}>
+                  <a 
+                    href={navLink.title === 'Strona główna' ? '/#' : navLink.link}
+                  >
+                    {navLink.title}
+                  </a>
+                </motion.li>
+              ))
+              :
+              data.datoCmsHero.navLinks.slice(0,3).map(navLink => (
+                <motion.li onClick={() => setOpen(false)} key={navLink.title}>
+                  <a 
+                    href={navLink.title === 'Strona główna' ? '/#' : navLink.link}
+                  >
+                    {navLink.title}
+                  </a>
+                </motion.li>
+              ))
+              }
+            </motion.ul>
+          )}
+        </AnimatePresence>
+        <MenuButton
+          title="menu button for toggling mobile menu"
+          aria-label="menu button for toggling mobile menu"
+          className={open ? "open" : ""}
+          onClick={() => setOpen(!open)}
+        >
+          <motion.span
+            initial={{opacity: 1}}
+            animate={open ? {scale: 0.8, rotate: -45, y: 6} : {scale: 1, rotate: 0, y: 0}}
+            transition={open ? {delay: 0.2, duration: 0.2} : {delay: 0, duration: .2}}  
+          ></motion.span>
+          <motion.span
+            initial={{opacity: 1}}
+            animate={open ? {x: 20, opacity: 0} : {x: 0, opacity: 1}}
+            transition={open ? {duration: 0.2} : {delay: 0.2, duration: .2}}
+          ></motion.span>
+          <motion.span
+            initial={{opacity: 1}}
+            animate={open ? {scale: 0.8, rotate: 45, y: -6} : {scale: 1, rotate: 0, y: 0}}
+            transition={open ? {delay: 0.2, duration: 0.2} : {delay: 0, duration: .2}}
+          ></motion.span>
+        </MenuButton>
+      </NavStyles>
+      <AnimatePresence>
+        <ScrollToTop 
+          initial={{opacity: 0}} 
+          animate={{opacity: 1}} 
+          exit={{opacity: 0}}
+          className="scroll" 
+          top={600} 
+          smooth 
+        />
+      </AnimatePresence>
+    </>
   )
 }
 

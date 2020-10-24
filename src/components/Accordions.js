@@ -142,7 +142,6 @@ function Item({question, answer}, ...props) {
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
-    console.log("toggle");
   }
 
   return (

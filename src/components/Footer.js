@@ -37,14 +37,14 @@ const FooterStyles = styled.footer`
   }
 
   li {
-    padding: 1.2rem;
+    padding: 0;
     margin-right: 2.6rem;
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 2.2rem;
     a {
       color: var(--brown);
-      padding: 0.4rem;
+      padding: 1.6rem;
     }
     .underline:after {
       background-color: var(--brown);
@@ -116,22 +116,22 @@ const Footer = () => {
         </Link>
         <ul>
           <li>
-            <Link to="/#top">Strona Główna</Link>
+            <Link className="underline" to="/#top">Strona Główna</Link>
           </li>
           <li>
-            <Link to="/#onas">O nas</Link>
+            <Link className="underline" to="/#onas">O nas</Link>
           </li>
           <li>
-            <Link to="/#uslugi">Usługi</Link>
+            <Link className="underline" to="/#uslugi">Usługi</Link>
           </li>
           <li>
-            <Link to="/#bazaklienta">Baza Klienta</Link>
+            <Link className="underline" to="/#bazaklienta">Baza Klienta</Link>
           </li>
           <li>
-            <Link to="/#kontakt">Kontakt</Link>
+            <Link className="underline" to="/#kontakt">Kontakt</Link>
           </li>
         </ul>
-        <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank"className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
+        <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
       </div>
     </FooterStyles>
   )
