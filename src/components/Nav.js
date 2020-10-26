@@ -225,17 +225,17 @@ const Nav = () => {
         title
       }
       logo {
-        fixed(width: 270) {
+        fixed(width: 250) {
           ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
       smaller: logo {
-        fixed(width: 180) {
+        fixed(width: 160) {
           ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
       smallest: logo {
-        fixed(width: 160) {
+        fixed(width: 140) {
           ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
