@@ -533,7 +533,7 @@ const ContactUsSection = ({path}) => {
           <div className="contactDetails">
             <p className="title">Nasze biuro</p>
             {width > 767 && <span className="line"></span>}
-            <p className="address">Krakowska 15, Kraków<br/>15-000</p>
+            <p className="address">ul. Prof. Tutki 10 Jadwisin,<br/>Serock 05-140</p>
             <ContactDetails 
               name="Radek"
               mail="serwis@naszokraj.eu"

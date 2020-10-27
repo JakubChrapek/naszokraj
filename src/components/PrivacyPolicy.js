@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
         <h2 className="line">Kto jest odpowiedzialny za przetwarzanie danych i z kim można się skontaktować?</h2>
       </div>
       <p>Administratorem Państwa danych jest NASZ OKRAJ Sp. z o.o., oddział w Polsce, (dalej jako „<b>Spółka</b>”), z którą można się skontaktować: pisemnie, kierując korespondencję pod adres: NASZ OKRAJ Sp. z o.o., ul. Profesora Tutki 10, 05-140 Jadwisin, telefonicznie, pod numerem: +48 509 411 729 lub 508 563 321, e-mailowo, pod adresem: prezes@naszokraj.eu</p>
-      <p>Spółka wyznaczyła inspektora ochrony danych, z którym można się skontaktować pisemnie, kierując korespondencję na adres: NASZ OKRAJ Sp. z o.o., , ul. Profesora Tutki 10, 05-140 Jadwisin, z dopiskiem: „<b>Inspektor ochrony danych</b>” oraz e-mailowo pod adresem: kancelaria@naszokraj.eu</p>
+      <p>Spółka wyznaczyła inspektora ochrony danych, z którym można się skontaktować pisemnie, kierując korespondencję na adres: NASZ OKRAJ Sp. z o.o., ul. Profesora Tutki 10, 05-140 Jadwisin, z dopiskiem: „<b>Inspektor ochrony danych</b>” oraz e-mailowo pod adresem: kancelaria@naszokraj.eu</p>
       <div className="titleWrapper">
         <span></span>
         <h2 className="line">Dlaczego, po co i na jakiej podstawie prawnej przetwarzamy Państwa dane?</h2>

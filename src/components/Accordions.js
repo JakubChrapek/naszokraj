@@ -27,7 +27,7 @@ const items = [
   {
     id: 4,
     question: "Czy macie działalność stacjonarną czy dojeżdżacie do klienta?",
-    answer: "Nasze biuro mieści się Krakowie i tam możemy się spotkać. Na co dzień oczywiście dojeżdżamy do klientów, to nasze najważniejsze miejsce pracy.",
+    answer: "Nasze biuro mieści się w Krakowie i tam możemy się spotkać. Na co dzień oczywiście dojeżdżamy do klientów, to nasze najważniejsze miejsce pracy.",
   },
 ]
 
