@@ -34,7 +34,7 @@ const SliderCardStyles = styled(motion.div)`
   flex-direction: column;
   background: white;
   border-radius: 4px;
-  box-shadow: 0px 4px 28px -4px rgba(0,0,0,0.12);
+  box-shadow: 0px 15px 40px 0px rgb(247, 236, 234);
   position: relative;
   max-width: 280px;
   height: 235px;
@@ -43,6 +43,7 @@ const SliderCardStyles = styled(motion.div)`
   padding: 3.2rem 4.6rem 4.4rem 2.6rem;
   color: var(--textBlack);
   &.accent {
+    box-shadow: 0px 15px 40px 0px rgb(217, 195, 191);
     background: var(--accent);
     p {
       color: var(--white);

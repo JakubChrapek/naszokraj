@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 import useCurrentWidth from '../hooks/useCurrentWidth'
 import Slider from './Slider'
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
             
 const Wrapper = styled.section`
   display: flex;
@@ -175,7 +174,7 @@ const CardStyles = styled(motion.div)`
     display: grid;
     background: white;
     border-radius: 4px;
-    box-shadow: 0px 4px 28px -4px rgba(0,0,0,0.12);
+    box-shadow: 0px 15px 40px 0px rgb(247, 236, 234);
     position: relative;
     max-width: 360px;
     padding: 5.2rem 6.6rem 7.4rem 3.6rem;
@@ -197,6 +196,7 @@ const CardStyles = styled(motion.div)`
 
     &.accent {
       background: var(--accent);
+      box-shadow: 0px 15px 40px 0px rgb(217, 195, 191);
       p {
         color: var(--white);
       }
