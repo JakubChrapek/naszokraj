@@ -28,11 +28,15 @@ const SectionStyles = styled.div`
     margin: 0 3rem 6rem;
   }
   
-  .line {
-    height: 3px;
-    width: 39px;
+
+  span.line {
+    width: 3.9rem;
+    height: 0.3rem;
     background-color: var(--accent);
-    margin: 1.4rem 0;
+    margin: 2rem 0 1.4rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+    }
   }
 
   .message {
@@ -58,9 +62,12 @@ const SectionStyles = styled.div`
       line-height: 3rem;
       letter-spacing: 0.2;
       color: var(--lightGrey);
+      @media only screen and (max-width: 1366px) {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
       @media only screen and (max-width: 1014px) {
         font-size: 1.8rem;
-        font-weight: 300;
         line-height: 2.7rem;
       }
     }
@@ -72,9 +79,9 @@ const SectionStyles = styled.div`
     font-weight: 900;
     color: var(--black);
 
-    @media only screen and (max-width: 1238px) {
-      font-size: 3rem;
-      line-height: 3.8rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 2.4rem;
+      line-height: 3.1rem;
     }
     @media only screen and (max-width: 1014px) {
       font-size: 2.6rem;
@@ -135,6 +142,10 @@ const SectionStyles = styled.div`
       color: var(--blackText);
       text-decoration: none;
       position: relative;
+      @media only screen and (max-width: 1366px) {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+      }
       @media only screen and (max-width: 1014px) {
         margin-bottom: 0.5rem;
         padding: 0.4rem 0.7rem 0.4rem 0;
@@ -177,6 +188,10 @@ const SectionStyles = styled.div`
       svg {
         margin-right: 1.1rem;
         transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+        @media only screen and (max-width: 1366px) {
+          width: 22px;
+        }
         @media only screen and (max-width: 1014px) {
           margin-right: 1rem;
           width: 20px;
@@ -198,6 +213,10 @@ const SectionStyles = styled.div`
     font-weight: 300;
     line-height: 3rem;
     margin: 2.4rem 0 0.6rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
     @media only screen and (max-width: 1014px) {
       font-size: 1.8rem;
       line-height: 2.7rem;
@@ -215,6 +234,10 @@ const SectionStyles = styled.div`
     font-size: 2rem;
     line-height: 2rem;
     font-weight: 600;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
     @media only screen and (max-width: 1014px) {
       margin: 1.8rem 0 0.9rem;
       font-size: 1.8rem;
@@ -231,9 +254,9 @@ const SectionStyles = styled.div`
     line-height: 2.8rem;
     color: var(--black);
     margin-bottom: 0.4rem;
-    @media only screen and (max-width: 1014px) {
-      font-size: 2.6rem;
-      line-height: 2.6rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.9rem;
+      line-height: 2.4rem;
     }
     @media only screen and (max-width: 767px) {
       font-size: 2rem;
@@ -249,6 +272,8 @@ const SectionStyles = styled.div`
       button {
         margin-top: 3rem;
         align-self:center;
+        width: 130px;
+        padding: 1.2rem 0.8rem;
         @media only screen and (max-width: 1308px) {
           margin-top: 2.7rem;
         }
@@ -273,13 +298,9 @@ const SectionStyles = styled.div`
       label {
         font-size: 1.2rem;
         line-height: 2rem;
-        @media only screen and (max-width: 1308px) {
-          font-size: 1.1rem;
-          line-height: 1.8rem;
-        }
-        @media only screen and (max-width: 767px) {
-          font-size: 1rem;
-          line-height: 1.6rem;
+        @media only screen and (max-width: 1366px) {
+          font-size: 0.9rem;
+          line-height: 1.7rem;
         }
         color: var(--lightGrey);
       }
@@ -305,9 +326,9 @@ const SectionStyles = styled.div`
       align-items: stretch;
       font-size: 2rem;
       line-height: 2rem;
-      @media only screen and (max-width: 1308px) {
-        font-size: 1.8rem;
-        line-height: 1.8rem;
+      @media only screen and (max-width: 1366px) {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
       }
       @media only screen and (max-width: 767px) {
         font-size: 1.6rem;
@@ -338,9 +359,11 @@ const SectionStyles = styled.div`
       input, textarea {
         margin: 2.3rem 0 2.6rem;
         padding: 1.9rem 3.2rem;
-        @media only screen and (max-width: 1308px) {
+        @media only screen and (max-width: 1366px) {
+          font-size: 1.5rem;
+          line-height: 2.3rem;
           margin: 2.1rem 0 2.3rem;
-          padding: 1.7rem 2.9rem;
+          padding: 1.2rem 2.6rem;
         }
         @media only screen and (max-width: 767px) {
           margin: 1.9rem 0 2.1rem;

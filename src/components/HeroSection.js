@@ -70,8 +70,8 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1560px) {
         font-size: 2.4rem;
       } 
-      @media only screen and (max-width: 1287px) {
-        font-size: 2.2rem;
+      @media only screen and (max-width: 1366px) {
+        font-size: 2rem;
       }
       @media only screen and (max-width: 1109px) {
         font-size: 2rem;
@@ -102,8 +102,8 @@ const HeroSectionStyles = styled.div`
     @media only screen and (max-width: 1560px) {
       font-size: 6rem;
     } 
-    @media only screen and (max-width: 1287px) {
-      font-size: 5.2rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 4.8rem;
     }
     @media only screen and (max-width: 1109px) {
       font-size: 4.8rem;
@@ -147,7 +147,7 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1560px) {
         font-size: 1.5rem;
       } 
-      @media only screen and (max-width: 1109px) {
+      @media only screen and (max-width: 1366px) {
         font-size: 1.4rem;
       } 
       @media only screen and (max-width: 767px) {
@@ -167,8 +167,8 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1560px) {
         font-size: 3rem;
       } 
-      @media only screen and (max-width: 1109px) {
-        font-size: 2.6rem;
+      @media only screen and (max-width: 1366px) {
+        font-size: 2.4rem;
       } 
       @media only screen and (max-width: 767px) {
         font-size: 3.2rem;
@@ -190,8 +190,8 @@ const HeroSectionStyles = styled.div`
       @media only screen and (max-width: 1560px) {
         height: 40px;
       } 
-      @media only screen and (max-width: 1109px) {
-        height: 36px;
+      @media only screen and (max-width: 1366px) {
+        height: 34px;
       } 
       @media only screen and (max-width: 767px) {
         height: 48px;
@@ -302,8 +302,8 @@ const HeroWrapper = styled.section`
 
 const OurBrandsStyles = styled.div`
   margin-top: -6rem;
-  @media only screen and (max-width: 1360px) {
-    margin-top: -2rem;
+  @media only screen and (max-width: 1366px) {
+    margin-top: -4rem;
   }
   @media only screen and (max-width: 767px) {
     margin-top: 10rem;
@@ -326,14 +326,16 @@ const OurBrandsStyles = styled.div`
     @media only screen and (max-width: 1560px) {
       margin-left: 14rem;
     }
-    @media only screen and (max-width: 1287px) {
-      margin-left: 10rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.7rem;
+      line-height: 2.4rem;
+      margin-left: 25rem;
     }
     @media only screen and (max-width: 1109px) {
-      margin-left: 6rem;
+      margin-left: 19rem;
     }
     @media only screen and (max-width: 767px) {
-      margin-left: 3rem;
+      margin-left: 9rem;
       font-size: 1.5rem;
     }
   }

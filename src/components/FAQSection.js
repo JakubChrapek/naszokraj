@@ -52,9 +52,9 @@ const SectionStyles = styled.div`
       font-weight: 900;
       color: var(--black);
       margin-bottom: 2.4rem;
-      @media only screen and (max-width: 1238px) {
-        font-size: 3rem;
-        line-height: 3.8rem;
+      @media only screen and (max-width: 1366px) {
+        font-size: 2.4rem;
+        line-height: 3.1rem;
       }
       @media only screen and (max-width: 1014px) {
         font-size: 2.6rem;
@@ -67,13 +67,19 @@ const SectionStyles = styled.div`
         line-height: clamp(2.6rem, 1.8705rem + 1.3423vw, 2.9rem);    
       }
     }
-    span {
-      width: 39px;
-      height: 3px;
-      background-color: var(--accent);
-      margin-right: 18px;
-      margin-bottom: 2.4rem;
+
+  span {
+    width: 3.9rem;
+    height: 0.3rem;
+    background-color: var(--accent);
+    margin-right: 1.8rem;
+    margin-bottom: 2.4rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+      height: 0.3rem;
+      margin-right: 1.3rem;
     }
+  }
 
     .questionMark {
       display: flex;
@@ -110,7 +116,7 @@ const FAQSection = () => {
         { width > 767 && 
           <div className="questionMark">
             <img src={Blob} alt=""/>
-            <FaQuestion size="16vw" color="#F05D05" />
+            <FaQuestion size="14vw" color="#F05D05" />
           </div>
         }
       </SectionStyles>

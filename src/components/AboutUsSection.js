@@ -38,6 +38,11 @@ const SectionStyles = styled.div`
     height: 0.3rem;
     background-color: var(--accent);
     margin-right: 1.8rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+      height: 0.3rem;
+      margin-right: 1.3rem;
+    }
     @media only screen and (max-width: 767px) {
       margin-right: 1.4rem;
     }
@@ -48,6 +53,11 @@ const SectionStyles = styled.div`
     line-height: 2rem;
     font-weight: 600;
     letter-spacing: 0.96px;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      letter-spacing: 0.84px;
+    }
     @media only screen and (max-width: 767px) {
       font-size: 1.4rem;
       line-height: 2rem;
@@ -61,8 +71,8 @@ const SectionStyles = styled.div`
     max-width: 1600px;
     margin-right: 6rem;
     @media only screen and (max-width: 1410px) {
-      font-size: 4rem;
-      line-height: 5rem;
+      font-size: 3.6rem;
+      line-height: 4.5rem;
       margin-top: 6rem;
     }
     @media only screen and (max-width: 1204px) {

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 import useCurrentWidth from '../hooks/useCurrentWidth'
 import Slider from './Slider'
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
             
 const Wrapper = styled.section`
   display: flex;
@@ -52,13 +54,22 @@ const SectionStyles = styled.div`
     justify-content: center;
     align-items: flex-start;
 
-    span {
-      width: 39px;
-      height: 3px;
-      background-color: var(--accent);
-      margin-right: 18px;
-      margin-bottom: 2.4rem;
+
+  span {
+    width: 3.9rem;
+    height: 0.3rem;
+    background-color: var(--accent);
+    margin-right: 1.8rem;
+    margin-bottom: 2.4rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+      height: 0.3rem;
+      margin-right: 1.3rem;
     }
+    @media only screen and (max-width: 767px) {
+      margin-right: 1.4rem;
+    }
+  }
 
     p {
       font-size: 2.8rem;
@@ -70,6 +81,10 @@ const SectionStyles = styled.div`
       @media only screen and (max-width: 1560px) {
         font-size: 2.4rem;
         line-height: 3.4rem;
+      }
+      @media only screen and (max-width: 1366px) {
+        font-size: 1.8rem;
+        line-height: 3rem;
       }
       @media only screen and (max-width: 1287px) {
         font-size: 1.7rem;
@@ -104,7 +119,7 @@ const SectionStyles = styled.div`
   }
 `
 
-const CardStyles = styled.div`
+const CardStyles = styled(motion.div)`
   list-style-type: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -218,9 +233,9 @@ const CardStyles = styled.div`
     letter-spacing: 0;
     color: var(--lightGrey);
     @media only screen and (max-width: 1464px) {
-      margin-top: 0.8rem;
-      font-size: 1.8rem;
-      line-height: 2.7rem;
+      margin-top: 1.4rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
     }
     @media only screen and (max-width: 1148px) {
       margin-top: 0.4rem;
@@ -240,8 +255,8 @@ const CardStyles = styled.div`
     color: var(--blackText);
     margin-top: 3rem;
     @media only screen and (max-width: 1464px) {
-      font-size: 2.5rem;
-      line-height: 3.6rem;
+      font-size: 1.9rem;
+      line-height: 2rem;
       margin-top: 2.4rem;
     }
     @media only screen and (max-width: 1148px) {
@@ -259,6 +274,7 @@ const CardStyles = styled.div`
 
 const AdvantagesSection = () => {
   let width = useCurrentWidth();
+
   return (
     <Wrapper>
       <SectionStyles>
@@ -268,7 +284,6 @@ const AdvantagesSection = () => {
           <p>Przeglądów dokonujemy u klientów przynajmniej raz w roku. Ściśle trzymamy się wytycznych producenta urządzenia oraz przepisów prawa budowlanego. Regularność i terminowość naprawdę się opłaca.</p>
           <a href="#kontakt"><button className="border" type="kontakt">Kontakt</button></a>
         </div>
-        {console.log("WIDTH: ", width)}
         { typeof window === "undefined" ? <></> : width > 767 ?
           (
             <CardStyles>

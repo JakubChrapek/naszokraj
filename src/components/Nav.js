@@ -159,9 +159,14 @@ const NavStyles = styled(motion.nav)`
     padding: 1rem;
     font-size: 1.8rem;
     line-height: 2.6rem;
+    @media only screen and (max-width: 1366px) {
+      padding: 0.8rem;
+      font-size: 1.4rem;
+      line-height: 2.3rem;
+    } 
     @media only screen and (max-width: 1109px) {
       padding: 0.8rem;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       line-height: 2.3rem;
     } 
     @media only screen and (max-width: 875px) {

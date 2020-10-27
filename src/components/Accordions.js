@@ -74,8 +74,8 @@ const ListItemStyles = styled(motion.li)`
     padding: 2.2rem 2.6rem;
     margin-bottom: 2.8rem;
     line-height: 1.3em;
-    @media only screen and (max-width: 1238px) {
-      font-size: 1.8rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.6rem;
       padding: 1.8rem 2.1rem;
       margin-bottom: 2.2rem;
     }

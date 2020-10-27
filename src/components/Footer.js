@@ -42,6 +42,10 @@ const FooterStyles = styled.footer`
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 2.2rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+    }
     @media only screen and (max-width: 767px) {
       padding: 0;
       margin: 0 0 2rem;
@@ -71,6 +75,10 @@ const FooterStyles = styled.footer`
     line-height: 2rem;
     color: var(--lightGrey);
     transition: color .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+    }
     @media only screen and (max-width: 767px) {
       margin-top: 1rem;
       font-size: 1.2rem;
@@ -110,7 +118,7 @@ const Footer = () => {
   query FooterQuery {
     datoCmsHero {
       logo {
-        fixed(width: 200) {
+        fixed(width: 150) {
           ...GatsbyDatoCmsFixed_tracedSVG
         }
       }

@@ -45,16 +45,19 @@ const SectionStyles = styled.div`
     }
   }
 
+
   span {
     width: 3.9rem;
     height: 0.3rem;
     background-color: var(--accent);
     margin-right: 1.8rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+      height: 0.3rem;
+      margin-right: 1.3rem;
+    }
     @media only screen and (max-width: 767px) {
       margin-right: 1.4rem;
-    }
-    @media only screen and (max-width: 520px) {
-      margin-left: -2rem;
     }
   }
   h2 {

@@ -44,11 +44,20 @@ const SectionStyles = styled.div`
     align-items: center;
   }
 
+
   span {
-    width: 39px;
-    height: 3px;
+    width: 3.9rem;
+    height: 0.3rem;
     background-color: var(--accent);
-    margin-right: 18px;
+    margin-right: 1.8rem;
+    @media only screen and (max-width: 1366px) {
+      width: 2.7rem;
+      height: 0.3rem;
+      margin-right: 1.3rem;
+    }
+    @media only screen and (max-width: 767px) {
+      margin-right: 1.4rem;
+    }
   }
 
   h2 {
@@ -57,6 +66,12 @@ const SectionStyles = styled.div`
     line-height: 2rem;
     font-weight: 600;
     letter-spacing: 0.96px;
+
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      letter-spacing: 0.84px;
+    }
   }
 
   .grid {
@@ -97,6 +112,11 @@ const SectionStyles = styled.div`
     color: var(--lightGrey);
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.8rem;
+      line-height: 3rem;
+    }
     @media only screen and (max-width: 1238px) {
       font-size: 2.2rem;
       line-height: 3.3rem;
@@ -120,9 +140,9 @@ const SectionStyles = styled.div`
     line-height: 4.5rem;
     color: var(--black);
     margin-bottom: 1.6rem;
-    @media only screen and (max-width: 1238px) {
-      font-size: 3rem;
-      line-height: 3.8rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 2.4rem;
+      line-height: 3rem;
       margin-bottom: 1.2rem;
     }
     @media only screen and (max-width: 1014px) {
@@ -165,12 +185,13 @@ const SectionStyles = styled.div`
         margin-right: 4rem;
       }
     }
-    @media only screen and (max-width: 1238px) {
-      font-size: 1.8rem;
-      line-height: 2.4rem;
+    @media only screen and (max-width: 1366px) {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
       margin-top: 2.4rem;
       img {
-        margin-right: 3rem;
+        margin-right: 3.4rem;
+        width: 20px;
       }
     }
     @media only screen and (max-width: 1014px) {

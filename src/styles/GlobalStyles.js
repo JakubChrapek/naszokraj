@@ -42,10 +42,10 @@ const GlobalStyles = createGlobalStyle`
     border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     font-size: 1.8rem;
 
-    @media only screen and (max-width: 1109px) {
-      padding: 1.2rem 0.7rem;
-      width: 140px;
-      font-size: 1.6rem;
+    @media only screen and (max-width: 1366px) {
+      padding: 0.9rem 0.4rem;
+      width: 115px;
+      font-size: 1.4rem;
     } 
 
     @media only screen and (max-width: 767px) {
