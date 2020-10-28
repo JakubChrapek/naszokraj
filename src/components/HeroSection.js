@@ -434,6 +434,10 @@ const HeroSection = () => {
               <img src={PhoneIcon} alt="ikona telefonu" />
               <span>{datoCmsHero.phoneNumber}</span>
             </a>
+            <a className="underline" href={`tel:+48508563321`}>
+              <img src={PhoneIcon} alt="ikona telefonu" />
+              <span>508 563 321</span>
+            </a>
           </div>
           {width > 767 && 
           <>

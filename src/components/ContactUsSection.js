@@ -535,12 +535,12 @@ const ContactUsSection = ({path}) => {
             {width > 767 && <span className="line"></span>}
             <p className="address">ul. Prof. Tutki 10 Jadwisin,<br/>Serock 05-140</p>
             <ContactDetails 
-              name="Radek"
+              name="Radek - Członek Zarządu"
               mail="serwis@naszokraj.eu"
               tel="+48 509 411 729"
             />
             <ContactDetails 
-              name="Lidka"
+              name="Lidka - Prezes"
               mail="prezes@naszokraj.eu"
               tel="+48 508 563 321"
             />
