@@ -100,7 +100,7 @@ const AboutUsSection = () => {
           <span></span>
           <h2 className="line" id="onas">O nas</h2>
         </div>
-        <p>O piecach wiemy wszystko - od kotłów, poprzez paliwo, po instalacje hydrauliczne i grzewcze. Jesteśmy pierwszą pomocą w przypadku awarii. Pomagamy dobrać idealny sprzęt.</p>
+        <p>O kotłach wiemy wszystko - od podajników, poprzez paliwo, po instalacje hydrauliczne i grzewcze. Jesteśmy pierwszą pomocą w przypadku awarii. Pomagamy dobrać idealny sprzęt.</p>
       </SectionStyles>
     </Wrapper>
   )

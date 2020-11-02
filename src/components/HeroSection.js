@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {graphql, useStaticQuery} from 'gatsby'
 
 import PhoneIcon from '../assets/images/icon-phone.svg'
+import WhitePhoneIcon from '../assets/images/icon-phone-white.svg'
 import HeroBg from '../assets/images/hero-bg.svg'
 import GatsbyImage from 'gatsby-image'
 import useCurrentWidth from '../hooks/useCurrentWidth'
@@ -123,55 +124,66 @@ const HeroSectionStyles = styled.div`
     display: grid;
     align-content: center;
     justify-items: center;
-    grid-gap: 1rem;
+    grid-gap: 0.8rem;
+    @media only screen and (max-width: 1500px) {
+      grid-gap: 0.4rem;
+    }
     background-color: white;
-    padding: 2.9rem 7.3rem;
+    &.accent {
+      background-color: var(--accent);
+      p, a {
+        color: white;
+      }
+      svg {
+        fill: white !important;
+      }
+    }
+    padding: 2rem 4.2rem;
     @media only screen and (max-width: 1560px) {
-      padding: 2.2rem 5.3rem;
+      padding: 2rem 3.4rem;
     } 
     @media only screen and (max-width: 1560px) {
-      padding: 2rem 4.6rem;
+      padding: 1.8rem 3rem;
     } 
     @media only screen and (max-width: 1109px) {
-      padding: 1.6rem 3.6rem;
+      padding: 1.6rem 3.2rem;
     }  
     @media only screen and (max-width: 767px) {
-      padding: 0;
-      background-color: unset;
+      padding: 1.6rem 2rem;
+      background-color: unset;    
+      width: 100%;
+      max-width: 460px;
+      
     }  
     p {
       margin: 0 0 0.6rem;
       color: var(--accent);
       font-size: 1.6rem;
       font-weight: 700;
-      @media only screen and (max-width: 1560px) {
-        font-size: 1.5rem;
-      } 
-      @media only screen and (max-width: 1366px) {
+      @media only screen and (max-width: 1500px) {
         font-size: 1.4rem;
-      } 
+      }
       @media only screen and (max-width: 767px) {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        grid-row: 1;
       }
     }
 
     a {
       display: grid;
       grid-auto-flow: column;
-      grid-gap: 2rem;
+      grid-gap: 1rem;
+      align-items: center;
       color: var(--accent);
       text-decoration: none;
       font-weight: 700;
-      font-size: 3.4rem;
-      line-height: 1em;
-      @media only screen and (max-width: 1560px) {
-        font-size: 3rem;
-      } 
-      @media only screen and (max-width: 1366px) {
-        font-size: 2.4rem;
-      } 
+      font-size: 2.2rem;
+      line-height: 1.3em;
+      @media only screen and (max-width: 1500px) {
+        font-size: 1.8rem;
+      }
       @media only screen and (max-width: 767px) {
-        font-size: 3.2rem;
+        font-size: 3.4rem;
         grid-gap: 1.2rem;
         align-items: center;
         span {
@@ -186,19 +198,22 @@ const HeroSectionStyles = styled.div`
     }
 
     svg, img {
-      height: 46px;
-      @media only screen and (max-width: 1560px) {
-        height: 40px;
-      } 
-      @media only screen and (max-width: 1366px) {
-        height: 34px;
-      } 
+      height: 28px;
+      margin-top: 0.4rem;
       @media only screen and (max-width: 767px) {
-        height: 48px;
+        height: 36px;
         margin-bottom: -0.2rem;
       } 
       fill: var(--accent);
       transition: transform .2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    &.accent {
+      svg {
+        fill: white;
+      }
+      a.underline:hover::after, a.underline:focus::after {
+        background-color: white;
+      }
     }
   }
 
@@ -206,10 +221,13 @@ const HeroSectionStyles = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    @media only screen and (max-width: 1109px) {
+      flex-direction: column;
+    }  
     @media only screen and (max-width: 767px) {
       align-items: center;
       justify-content: center;
-      padding: 0 2rem;
+      padding: 0;
     } 
   }
 
@@ -335,7 +353,7 @@ const OurBrandsStyles = styled.div`
       margin-left: 19rem;
     }
     @media only screen and (max-width: 767px) {
-      margin-left: 9rem;
+      margin-left: 3rem;
       font-size: 1.5rem;
     }
   }
@@ -429,15 +447,18 @@ const HeroSection = () => {
         </div>
         <div className="contact">
           <div className="contactWrapper">
-            <p>Problem z piecem?</p>
-            <a className="underline" href={`tel:+48${datoCmsHero.phoneNumber.replace(/ /g, '')}`}>
-              <img src={PhoneIcon} alt="ikona telefonu" />
-              <span>{datoCmsHero.phoneNumber}</span>
-            </a>
             <a className="underline" href={`tel:+48508563321`}>
               <img src={PhoneIcon} alt="ikona telefonu" />
               <span>508 563 321</span>
             </a>
+            <p>Problem z piecem?</p>
+          </div>
+          <div className="contactWrapper accent">
+            <a className="underline" href={`tel:+48509411729`}>
+              <img src={WhitePhoneIcon} alt="ikona telefonu" />
+              <span>509 411 729</span>
+            </a>
+            <p>Serwis</p>
           </div>
           {width > 767 && 
           <>
