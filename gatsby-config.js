@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `Naszokraj`,
     siteUrl: `https://naszokraj.eu`,
-    description: `Prowadzimy kompleksowy serwis oraz wymianę pieców gazowych. Jesteśmy autoryzowanymi przedstawicielami marek dostarczających ciepło.`,
+    description: `Prowadzimy kompleksowy serwis oraz wymianę kotłów gazowych. Jesteśmy autoryzowanymi przedstawicielami marek dostarczających ciepło.`,
     twitter: `@naszokraj`,
     author: `@kryptonum.studio`,
   },
@@ -49,13 +49,13 @@ module.exports = {
         apiToken: process.env.API_DATO_CMS,
       },
     },    
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: process.env.GA_TRACKING_ID,
-    //     head: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_TRACKING_ID,
+        head: true,
+      },
+    },
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
