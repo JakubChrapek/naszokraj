@@ -148,7 +148,7 @@ const Footer = () => {
             <Link className="underline short" to="/#kontakt">Kontakt</Link>
           </li>
         </ul>
-        <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://agathadesign.co.uk/">Agatha Design</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://kryptonumstudio.com">Kryptonum Studio</a></span> & <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
+        <p>Stronę stworzyli: <span><a rel="noopener noreferrer" target="_blank" className="underline" href="https://www.linkedin.com/in/agatha-sakowicz-6b9957124/">Agatha Design</a></span> & <span><a rel="noopener" target="_blank" className="underline" href="https://kryptonum.eu/pl">Kryptonum</a></span> & <span><a rel="noopener" target="_blank" className="underline" href="https://dobratresc.com">Dobra Treść</a></span></p>
       </div>
     </FooterStyles>
   )
